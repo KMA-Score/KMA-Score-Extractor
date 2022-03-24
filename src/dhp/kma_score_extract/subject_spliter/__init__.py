@@ -1,6 +1,6 @@
 import os
 import cv2
-from src.dhp.kma_score_extract.subject_spliter.tessaract import *
+from dhp.kma_score_extract.subject_spliter.tessaract import *
 
 
 # yy xx

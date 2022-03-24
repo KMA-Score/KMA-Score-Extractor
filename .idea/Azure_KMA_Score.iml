@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$/src">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+    </content>
+    <orderEntry type="jdk" jdkName="Python 3.9 (KMA_Score)" jdkType="Python SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+  <component name="PyNamespacePackagesService">
+    <option name="namespacePackageFolders">
+      <list>
+        <option value="$MODULE_DIR$/src/dhp" />
+        <option value="$MODULE_DIR$/src/dhp/kma_score_extract" />
+        <option value="$MODULE_DIR$/src/dhp/kma_score_extract/extract_table" />
+        <option value="$MODULE_DIR$/src/dhp/kma_score_extract/pdf_to_image" />
+        <option value="$MODULE_DIR$/src/dhp/kma_score_extract/subject_spliter" />
+      </list>
+    </option>
+  </component>
+</module>

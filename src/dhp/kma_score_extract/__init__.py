@@ -1,7 +1,12 @@
-from src.dhp.kma_score_extract.extract_table import *
-from src.dhp.kma_score_extract.pdf_to_image import *
-from src.dhp.kma_score_extract.subject_spliter import *
-import os
+from pathlib import Path
+import sys
+
+path_root = Path(__file__).parents[2]
+sys.path.append(str(path_root))
+
+from dhp.kma_score_extract.pdf_to_image import *
+from dhp.kma_score_extract.subject_spliter import *
+from dhp.kma_score_extract.extract_table import *
 
 
 def _get_absolute_file_list(path):
