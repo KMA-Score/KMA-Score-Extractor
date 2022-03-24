@@ -1,5 +1,6 @@
 import sqlite3
 from dhp.db_import.utils import *
+import logging
 
 
 class DBImport:
@@ -10,6 +11,7 @@ class DBImport:
         self._create_table_if_not_exist()
 
     def _create_table_if_not_exist(self):
+        logging.info("Checking table if not exist")
         cursor = self.con.cursor()
 
         cursor.execute("""
@@ -89,6 +91,8 @@ class DBImport:
                                        )
 
             self.con.commit()
+
+            logging.info("Import to DB success")
 
         else:
             raise Exception("Data cannot be null")

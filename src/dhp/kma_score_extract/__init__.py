@@ -1,5 +1,6 @@
 from pathlib import Path
 import sys
+import logging
 
 path_root = Path(__file__).parents[2]
 sys.path.append(str(path_root))
@@ -18,9 +19,10 @@ def _get_absolute_file_list(path):
 
 class KMAScoreExtract:
 
-    def __init__(self, path, poppler_path, tesseract_path):
+    def __init__(self, path, poppler_path=None, tesseract_path=None, temp_path=None):
         self.poppler_path = poppler_path
         self.tesseract_path = tesseract_path
+        self.temp_path = temp_path
 
         if path is None:
             raise Exception("Path must not null")
@@ -28,11 +30,17 @@ class KMAScoreExtract:
         self.path = path
 
     def extract(self):
-        # file_path = os.path.join(os.path.abspath(".."), "sample", FILENAME)
-        list_img = extract_image(self.path, poppler_path=self.poppler_path)
+        logging.info("Extract image from pdf")
 
-        # pdf2images = r"E:\PROJECT\KMA\KMA_Score\temp\pdf2images"
+        list_img = extract_image(self.path, poppler_path=self.poppler_path, temp_path=self.temp_path)
+
+        logging.info("Divide page to subject group")
+
         file_dict = subject_spliter(list_img, tesseract_path=self.tesseract_path)
+
+        logging.info("Extract table from pdf")
+
+        logging.info(file_dict)
 
         all_subject = extract_table(self.path, file_dict)
 

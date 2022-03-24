@@ -1,5 +1,9 @@
 from dhp.kma_score_extract import KMAScoreExtract
+from dhp.db_import import DBImport
 import os
+import logging
+
+logging.basicConfig(level=logging.INFO)
 
 FILENAME = "test.pdf"
 poppler_path = os.path.join(os.path.abspath(".."), "bin", "poppler-22.01.0", "Library", "bin")
@@ -12,4 +16,6 @@ if __name__ == "__main__":
 
     kma_score = kma.extract()
 
-    print(kma_score)
+    db = DBImport(db_file="database.db")
+    
+    db.insert_into_db(kma_score)

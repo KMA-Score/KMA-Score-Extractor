@@ -11,7 +11,10 @@ from pathlib import Path
 default_temp_path = os.path.join(os.path.abspath(".."), "temp", "pdf2images")
 
 
-def extract_image(filename, thread_count=3, poppler_path="", temp_path=default_temp_path):
+def extract_image(filename, thread_count=3, poppler_path="", temp_path=None):
+    if temp_path is None:
+        temp_path = default_temp_path
+
     if not os.path.exists(temp_path):
         Path(temp_path).mkdir(parents=True, exist_ok=True)
 
