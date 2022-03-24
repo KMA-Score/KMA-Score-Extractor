@@ -1,6 +1,7 @@
 import os
 import cv2
 from dhp.kma_score_extract.subject_spliter.tessaract import *
+from tqdm import tqdm
 
 
 # yy xx
@@ -24,7 +25,7 @@ def subject_spliter(temp_folder, tesseract_path):
 
     temp_subject_code = ''
 
-    for file in file_list:
+    for file in tqdm(file_list):
         file_path = os.path.join(temp_folder, file)
 
         img = cv2.imread(file_path, 0)
