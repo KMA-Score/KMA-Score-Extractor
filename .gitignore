@@ -34,6 +34,7 @@ sample/
 temp/
 .idea/*
 .idea
+database.db
 
 # Gradle
 .idea/**/gradle.xml

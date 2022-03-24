@@ -6,18 +6,19 @@ from pdf2image.exceptions import (
 )
 from tqdm import tqdm
 import os
-import tempfile
+from pathlib import Path
+
+default_temp_path = os.path.join(os.path.abspath(".."), "temp", "pdf2images")
 
 
-def extract_image(filename, thread_count=3, poppler_path=""):
-    # temp_folder =
-    temp_folder = os.path.join(os.path.abspath(".."), "temp", "pdf2images")
+def extract_image(filename, thread_count=3, poppler_path="", temp_path=default_temp_path):
+    if not os.path.exists(temp_path):
+        Path(temp_path).mkdir(parents=True, exist_ok=True)
 
     images = convert_from_path(filename, thread_count=thread_count, poppler_path=poppler_path)
 
     for i in tqdm(range(len(images))):
-        # images[i].save('temp/pdfImage/' + str(i) + '.jpg', 'JPEG')
-        images[i].save(os.path.join(temp_folder, '{}.jpg'.format(i)), 'JPEG')
+        images[i].save(os.path.join(temp_path, '{}.jpg'.format(i)), 'JPEG')
     pass
 
-    return temp_folder
+    return temp_path
