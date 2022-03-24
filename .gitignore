@@ -32,6 +32,8 @@
 bin/
 sample/
 temp/
+.idea/*
+.idea
 
 # Gradle
 .idea/**/gradle.xml
