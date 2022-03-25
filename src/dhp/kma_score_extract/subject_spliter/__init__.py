@@ -1,13 +1,7 @@
 import os
-import cv2
-from dhp.kma_score_extract.subject_spliter.tessaract import *
+from dhp.kma_score_extract.subject_spliter.ocr import *
 from tqdm import tqdm
-
-
-# yy xx
-# crop_img = img[90:145, 150:335] #HVKTMM
-# img = img[315:365, 230:900] #Subject Name
-# img = img[315:365, 1360:1650] # subject code
+import numpy as np
 
 
 def _get_file_list(temp_folder):
@@ -18,27 +12,32 @@ def _get_page(file):
     return int(file.split('.')[0])
 
 
-def subject_spliter(temp_folder, tesseract_path):
-    file_list = _get_file_list(temp_folder)
-
+def subject_spliter(images):
     file_dict = {}
 
-    temp_subject_code = ''
+    global_subject_code = ""
 
-    for file in tqdm(file_list):
-        file_path = os.path.join(temp_folder, file)
+    for i, file in tqdm(enumerate(images)):
 
-        img = cv2.imread(file_path, 0)
+        img = np.array(file)
 
-        hvktmm_img = img[90:145, 150:335]
-        hvktmm = ocr(hvktmm_img, tesseract_path)
+        # hvktmm_img = img[90:145, 150:335] # for pdf dpi 200
+        hvktmm_img = img[200:285, 335:665]
+        hvktmm = ocr(hvktmm_img)
 
         if hvktmm.upper() == "HỌC VIỆN":
-            subject_code_img = img[315:365, 1360:1650]
-            subject_code = ocr(subject_code_img, tesseract_path)
-            file_dict[subject_code] = [_get_page(file)]
-            temp_subject_code = subject_code
+            # subject_code_img = img[315:365, 1360:1650] # for pdf dpi 200
+            subject_code_img = img[645:720, 2730:3150]
+            subject_code = ocr(subject_code_img)
+
+            global_subject_code = subject_code
+            file_dict[subject_code] = []
+            file_dict[subject_code].append(i)
+
         else:
-            file_dict[temp_subject_code].append(_get_page(file))
+            if not global_subject_code:  # check if blank page at start file
+                continue
+
+            file_dict[global_subject_code].append(i)
 
     return file_dict

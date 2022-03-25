@@ -1,6 +1,7 @@
 import camelot
 import os
 
+# checking ghostscript for Windows environment
 if os.name == 'nt':
     import ctypes
     from ctypes.util import find_library
@@ -27,7 +28,14 @@ def extract_table(file, file_dict):
     for i, table in enumerate(tables):
         table_pd = table.df
 
-        cols_needed = table_pd.iloc[1:, [2, 3, 4, 5, 6, 7, 8, 9]]
+        if len(table_pd.columns) < 10:
+            continue
+
+        # TODO: Fix. OCR sometime merge SDB and StudentName column
+        if len(table_pd.columns) == 10:
+            cols_needed = table_pd.iloc[1:, [1, 2, 3, 4, 5, 6, 7, 8]]
+        else:
+            cols_needed = table_pd.iloc[1:, [2, 3, 4, 5, 6, 7, 8, 9]]
 
         key = _find_keys(file_dict, i)
 

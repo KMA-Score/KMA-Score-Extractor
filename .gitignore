@@ -35,6 +35,8 @@ temp/
 .idea/*
 .idea
 *.db
+test*.py
+src/database.db
 
 # Gradle
 .idea/**/gradle.xml

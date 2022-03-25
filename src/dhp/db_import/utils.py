@@ -1,5 +1,5 @@
 def clean_text(text):
-    return text.strip()
+    return str(text).strip()
 
 
 def student_code_format(text):

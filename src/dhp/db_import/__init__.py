@@ -40,8 +40,8 @@ class DBImport:
         if data is not None:
             cursor = self.con.cursor()
 
-            for subjectCode in data:
-                studentsSubjectData = data[subjectCode]
+            for subjectCode, studentsSubjectData in data.items():
+                # studentsSubjectData = data[subjectCode]
 
                 for studentSubjectData in studentsSubjectData:
                     cursor.execute("SELECT id FROM studentScore WHERE studentCode=? AND subjectCode=?",

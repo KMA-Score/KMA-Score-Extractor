@@ -1,6 +1,7 @@
 from pathlib import Path
 import sys
 import logging
+import shutil
 
 path_root = Path(__file__).parents[2]
 sys.path.append(str(path_root))
@@ -19,9 +20,8 @@ def _get_absolute_file_list(path):
 
 class KMAScoreExtract:
 
-    def __init__(self, path, poppler_path=None, tesseract_path=None, temp_path=None):
+    def __init__(self, path, poppler_path=None, temp_path=None):
         self.poppler_path = poppler_path
-        self.tesseract_path = tesseract_path
         self.temp_path = temp_path
 
         if path is None:
@@ -32,16 +32,18 @@ class KMAScoreExtract:
     def extract(self):
         logging.info("Extract image from pdf")
 
-        list_img = extract_image(self.path, poppler_path=self.poppler_path, temp_path=self.temp_path)
+        images = extract_image(self.path, poppler_path=self.poppler_path, temp_path=self.temp_path)
 
         logging.info("Divide page to subject group")
 
-        file_dict = subject_spliter(list_img, tesseract_path=self.tesseract_path)
-
-        logging.info("Extract table from pdf")
+        file_dict = subject_spliter(images)
 
         logging.info(file_dict)
 
+        logging.info("Extract table from pdf")
+
         all_subject = extract_table(self.path, file_dict)
+
+        shutil.rmtree(self.temp_path, ignore_errors=True)
 
         return all_subject
