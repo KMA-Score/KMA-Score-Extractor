@@ -30,6 +30,10 @@ class KMAScoreExtract:
         self.path = path
 
     def extract(self):
+        """
+        Extract score from pdf
+        :return:
+        """
         logging.info("Extract image from pdf")
 
         images = extract_image(self.path, poppler_path=self.poppler_path, temp_path=self.temp_path)

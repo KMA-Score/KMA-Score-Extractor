@@ -21,6 +21,15 @@ def _find_keys(file_dict, page):
 
 
 def extract_table(file, file_dict):
+    """
+    Extract score table from pdf
+    :param file: Path to file
+    :type file str
+    :param file_dict: Dict that contain subjectCode-page mapping
+    :type file_dict dict
+    :return: A dict that contain subjectCode-Score By StudentCode format
+    :rtype: dict
+    """
     tables = camelot.read_pdf(file, pages='all')
 
     all_subject_score = {}

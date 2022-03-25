@@ -5,6 +5,16 @@ from dhp.db_import.utils import *
 
 
 class DBImport:
+    """
+    DB Utilities for create and export database sqlite
+
+    Parameters
+    ----------
+    db_file: str
+        Path to database file
+
+    """
+
     def __init__(self, db_file):
         self.db = db_file
         self.con = sqlite3.connect(self.db)
@@ -38,6 +48,13 @@ class DBImport:
         """)
 
     def insert_into_db(self, data):
+        """
+        Insert into database from Dict
+        :param data: Dict from KMA_Score_Extract
+        :type data: dict
+        :return: This function no return
+        :rtype: void
+        """
         if data is not None:
             cursor = self.con.cursor()
 
@@ -99,6 +116,13 @@ class DBImport:
             raise Exception("Data cannot be null")
 
     def export_to_sql(self, file_path):
+        """
+        Dump database to sql schema
+        :param file_path: Path to file location
+        :type file_path: str
+        :return: No return
+        :rtype: void
+        """
         if not file_path:
             raise Exception("File path can not be null")
 
@@ -111,6 +135,15 @@ class DBImport:
         logging.info("Successfully export to {}".format(file_path))
 
     def export_score(self, file_path, file_type='csv'):
+        """
+        Dump score table in database to multiple format
+        :param file_path: Path to file location
+        :type file_path str
+        :param file_type: Type of output format
+        :type file_type str
+        :return: No return
+        :rtype: void
+        """
         if not file_path:
             raise Exception("File path can not be null")
 

@@ -13,6 +13,13 @@ def _get_page(file):
 
 
 def subject_spliter(images):
+    """
+    Divide page by subject
+    :param images: List of PIL image
+    :type images list
+    :return: Dictionary of SubjectCode-Page Mapping
+    :rtype: dict
+    """
     file_dict = {}
 
     global_subject_code = ""
