@@ -32,6 +32,7 @@
 bin/
 sample/
 temp/
+output/
 .idea/*
 .idea
 *.db

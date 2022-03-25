@@ -96,3 +96,15 @@ class DBImport:
 
         else:
             raise Exception("Data cannot be null")
+
+    def export_to_sql(self, file_path):
+        if not file_path:
+            raise Exception("File path can not be null")
+
+        logging.info("Dump to sql")
+
+        with open(file_path, 'w', encoding='utf-8') as f:
+            for line in self.con.iterdump():
+                f.write('%s\n' % line)
+
+        logging.info("Successfully export to {}".format(file_path))

@@ -15,9 +15,9 @@ def extract(file_path):
 
     kma_score = kma.extract()
 
-    logging.info("Import to DB")
+    db = DBImport(db_file=os.path.join(os.path.abspath(".."), "output", "database.db"))
 
-    db = DBImport(db_file="database.db")
+    logging.info("Import to DB")
 
     db.insert_into_db(kma_score)
 
