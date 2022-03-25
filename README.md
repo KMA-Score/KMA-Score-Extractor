@@ -2,12 +2,12 @@
 Đây là công cụ giúp nhận dạng và phân loại điểm theo từng môn từ file PDF từ phòng khảo thí Học viện Kỹ thuật mật mã.
 > Công cụ chỉ hoạt động với một định dạng PDF cụ thể.
 ## Mục lục
-- Giới thiệu chung
-- Công nghệ sử dụng
-- Cách cài đặt
-- Chạy ứng dụng
-- Giấy phép
-- Ủng hộ
+- [Giới thiệu chung](https://github.com/Haven-Code/KMA-Score-Extractor/blob/phuchptty-patch-1/README.md#gi%E1%BB%9Bi-thi%E1%BB%87u-chung)
+- [Công nghệ sử dụng](https://github.com/Haven-Code/KMA-Score-Extractor/blob/phuchptty-patch-1/README.md#c%C3%A0i-%C4%91%E1%BA%B7t-m%C3%B4i-tr%C6%B0%E1%BB%9Dng)
+- [Cài đặt môi trường](https://github.com/Haven-Code/KMA-Score-Extractor/blob/phuchptty-patch-1/README.md#c%C3%A0i-%C4%91%E1%BA%B7t-m%C3%B4i-tr%C6%B0%E1%BB%9Dng)
+- [Chạy ứng dụng](https://github.com/Haven-Code/KMA-Score-Extractor/blob/phuchptty-patch-1/README.md#ch%E1%BA%A1y-%E1%BB%A9ng-d%E1%BB%A5ng)
+- [Giấy phép](https://github.com/Haven-Code/KMA-Score-Extractor/blob/phuchptty-patch-1/README.md#gi%E1%BA%A5y-ph%C3%A9p)
+- [Ủng hộ](https://github.com/Haven-Code/KMA-Score-Extractor/blob/phuchptty-patch-1/README.md#%E1%BB%A7ng-h%E1%BB%99)
 ## Giới thiệu chung
 Dự án được sinh ra nhằm mục đích phục vụ nghiên cứu đồng thời bổ sung tính năng tra cứu điểm cho ứng dụng [iKMA](https://kma.dhpgo.com). Với vai trò là lựa chọn thay thế bên cạnh bảng điểm tại trang QLĐT.
 ## Công nghệ sử dụng
