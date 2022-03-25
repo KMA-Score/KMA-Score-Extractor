@@ -12,11 +12,13 @@ def _get_page(file):
     return int(file.split('.')[0])
 
 
-def subject_spliter(images):
+def subject_spliter(images, gpu):
     """
     Divide page by subject
     :param images: List of PIL image
     :type images list
+    :param gpu: Using GPU for OCR process
+    :type gpu bool
     :return: Dictionary of SubjectCode-Page Mapping
     :rtype: dict
     """
@@ -30,12 +32,12 @@ def subject_spliter(images):
 
         # hvktmm_img = img[90:145, 150:335] # for pdf dpi 200
         hvktmm_img = img[200:285, 335:665]
-        hvktmm = ocr(hvktmm_img)
+        hvktmm = ocr(hvktmm_img, gpu=gpu)
 
         if hvktmm.upper() == "HỌC VIỆN":
             # subject_code_img = img[315:365, 1360:1650] # for pdf dpi 200
             subject_code_img = img[645:720, 2730:3150]
-            subject_code = ocr(subject_code_img)
+            subject_code = ocr(subject_code_img, gpu=gpu)
 
             global_subject_code = subject_code
             file_dict[subject_code] = []

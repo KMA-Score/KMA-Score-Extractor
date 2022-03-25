@@ -1,9 +1,8 @@
 import easyocr
 
-reader = easyocr.Reader(['vi', 'en'])
 
-
-def ocr(img):
+def ocr(img, gpu=True):
+    reader = easyocr.Reader(['vi', 'en'], gpu=gpu)
     text = reader.readtext(img, detail=0)
     text = " ".join(text)
 

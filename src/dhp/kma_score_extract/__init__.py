@@ -40,7 +40,7 @@ class KMAScoreExtract:
 
         logging.info("Divide page to subject group")
 
-        file_dict = subject_spliter(images)
+        file_dict = subject_spliter(images, gpu=True)
 
         logging.info(file_dict)
 
