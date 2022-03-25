@@ -1,6 +1,7 @@
 import sqlite3
-from dhp.db_import.utils import *
 import logging
+import pandas as pd
+from dhp.db_import.utils import *
 
 
 class DBImport:
@@ -108,3 +109,25 @@ class DBImport:
                 f.write('%s\n' % line)
 
         logging.info("Successfully export to {}".format(file_path))
+
+    def export_score(self, file_path, file_type='csv'):
+        if not file_path:
+            raise Exception("File path can not be null")
+
+        if file_type not in ['csv', 'excel', 'json']:
+            raise Exception("Type must be csv, excel or json")
+
+        logging.info("Dump to {}".format(file_type))
+
+        df = pd.read_sql_query("SELECT * FROM studentScore", self.con)
+
+        df.drop(df.columns[0], axis=1, inplace=True)
+
+        if file_type == "csv":
+            df.to_csv(file_path)
+        elif file_type == "excel":
+            df.to_excel(file_path)
+        elif file_type == "json":
+            df.to_json(file_path)
+
+        logging.info("Successfully export format {} in {}".format(file_type, file_path))
