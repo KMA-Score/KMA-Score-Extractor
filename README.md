@@ -48,7 +48,7 @@ Tải xuống và cài đặt phiên bản cho Windows [tại trang của họ](
 Ví dụ: `C:\Program Files\gs\gs9.55.0\bin`
 ### Bước 3: Cài đặt thư viện Python
 ```
-pip3 install opencv-python opencv-python-headless==4.5.1.48 tqdm matplotlib numpy
+pip3 install opencv-python opencv-python-headless==4.5.1.48 tqdm matplotlib pyyaml numpy
 pip3 install camelot-py[cv] pdf2image easyocr
 ```
 
