@@ -2,6 +2,7 @@ import os
 from dhp.kma_score_extract.subject_spliter.ocr import *
 from tqdm import tqdm
 import numpy as np
+import fitz
 
 
 def _get_file_list(temp_folder):
@@ -12,9 +13,10 @@ def _get_page(file):
     return int(file.split('.')[0])
 
 
-def subject_spliter(images, gpu):
+# TODO: Remove this method
+def subject_spliter_ocr(images, gpu):
     """
-    Divide page by subject
+    DEPRECATED
     :param images: List of PIL image
     :type images list
     :param gpu: Using GPU for OCR process
@@ -48,5 +50,39 @@ def subject_spliter(images, gpu):
                 continue
 
             file_dict[global_subject_code].append(i)
+
+    return file_dict
+
+
+def subject_spliter(pdf_file):
+    """
+    Divide page by subject
+    :param pdf_file: Path to PDF file
+    :type pdf_file str
+    :return: Dictionary of SubjectCode-Page Mapping
+     :rtype: dict
+    """
+    file_dict = {}
+
+    with fitz.open(pdf_file) as pages:
+        for i, page in enumerate(tqdm(pages)):
+            page_content = page.get_text()
+
+            if not page_content:
+                continue
+
+            page_content_line = page_content.split("\n")
+
+            student_code_line = [x for x in page_content_line if x.__contains__('Mã học phần')]
+
+            if not student_code_line or not student_code_line[0]:
+                continue
+
+            student_code = student_code_line[0].split(":")[1].strip()
+
+            if student_code not in file_dict.keys():
+                file_dict[student_code] = [i]
+            else:
+                file_dict[student_code].append(i)
 
     return file_dict

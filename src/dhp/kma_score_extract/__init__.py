@@ -34,20 +34,14 @@ class KMAScoreExtract:
         Extract score from pdf
         :return:
         """
-        logging.info("Extract image from pdf")
-
-        images = extract_image(self.path, poppler_path=self.poppler_path, temp_path=self.temp_path)
-
         logging.info("Divide page to subject group")
 
-        file_dict = subject_spliter(images, gpu=True)
+        file_dict = subject_spliter(self.path)
 
         logging.info(file_dict)
 
         logging.info("Extract table from pdf")
 
         all_subject = extract_table(self.path, file_dict)
-
-        shutil.rmtree(self.temp_path, ignore_errors=True)
 
         return all_subject

@@ -1,11 +1,13 @@
 import camelot
-import os
+from sys import platform
 
 # checking ghostscript for Windows environment
-if os.name == 'nt':
-    import ctypes
-    from ctypes.util import find_library
+import ctypes
+from ctypes.util import find_library
 
+if platform == "linux" or platform == "linux2" or platform == "darwin":
+    find_library("gs")
+elif platform == "win32":
     find_library("".join(("gsdll", str(ctypes.sizeof(ctypes.c_voidp) * 8), ".dll")))
 
 

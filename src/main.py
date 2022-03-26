@@ -2,6 +2,7 @@ from dhp.kma_score_extract import KMAScoreExtract
 from dhp.db_import import DBImport
 import os
 import logging
+import time
 
 logging.basicConfig(level=logging.INFO)
 
@@ -23,14 +24,20 @@ def extract(file_path):
 
 
 if __name__ == "__main__":
+    tic = time.time()
+
     folder_path = os.path.join(os.path.abspath(".."), "sample")
 
-    files_in_folder = os.listdir(folder_path)
+    files_in_folder = [x for x in os.listdir(folder_path) if x.endswith(".pdf")]
 
     logging.info("Found {} file!".format(len(files_in_folder)))
 
     for file in files_in_folder:
-        if file.endswith(".pdf"):
-            file_path = os.path.join(folder_path, file)
+        logging.info("Start File {}".format(file))
+        file_path = os.path.join(folder_path, file)
 
-            extract(file_path)
+        extract(file_path)
+
+    toc = time.time()
+
+    logging.info("Process time: {} s".format(toc - tic))
