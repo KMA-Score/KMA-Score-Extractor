@@ -64,6 +64,8 @@ def subject_spliter(pdf_file):
     """
     file_dict = {}
 
+    global_subject_code = ""
+
     with fitz.open(pdf_file) as pages:
         for i, page in enumerate(tqdm(pages)):
             page_content = page.get_text()
@@ -76,9 +78,14 @@ def subject_spliter(pdf_file):
             student_code_line = [x for x in page_content_line if x.__contains__('Mã học phần')]
 
             if not student_code_line or not student_code_line[0]:
-                continue
+                if not global_subject_code:  # Prevent cover and not score page
+                    continue
 
-            student_code = student_code_line[0].split(":")[1].strip()
+                student_code = global_subject_code  # Prevent page don't have subject code
+
+            else:
+                student_code = student_code_line[0].split(":")[1].strip()
+                global_subject_code = student_code
 
             if student_code not in file_dict.keys():
                 file_dict[student_code] = [i]

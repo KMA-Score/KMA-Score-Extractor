@@ -12,26 +12,11 @@
 Dự án được sinh ra nhằm mục đích phục vụ nghiên cứu đồng thời bổ sung tính năng tra cứu điểm cho ứng dụng [iKMA](https://kma.dhpgo.com). Với vai trò là lựa chọn thay thế bên cạnh bảng điểm tại trang QLĐT.
 ## Công nghệ sử dụng
 Dự án sử dụng công nghệ: 
-- Xử lý hình ảnh (OpenCV)
-- Nhận diện ký tự quang học (OCR) sử dụng thư viện [EasyOCR](https://github.com/JaidedAI/EasyOCR)
+- Đọc text-base PDF sử dụng PyMuPDF
 - Database: Sqlite3
 - Ngôn ngữ sử dụng: Python 3.9
 ## Cài đặt môi trường
-### Bước 1: Cài đặt PyTorch
-Pytorch đưa ra 2 lựa chọn: sử dụng GPU và sử dụng CPU. GPU sẽ cho ra hiệu năng cao hơn nhưng yêu cầu máy tính phải có GPU Nvidia (không tính các dòng GPU Mobile).
-
-#### Sử dụng GPU
-- Tải xuống và cài đặt CUDA toolkit [tại đây](https://developer.nvidia.com/cuda-downloads).
-- Cài đặt [Pytorch](https://pytorch.org/get-started/locally/) có hỗ trợ GPU
-```shell
-pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu113
-```
-#### Sử dụng CPU
-```shell
-pip3 install torch torchvision torchaudio
-```
-### Bước 2: Cài đặt các gói phụ trợ
-- [Pdf2image] Theo hướng dẫn [tại đây](https://github.com/Belval/pdf2image#how-to-install) để cài đặt các gói bổ trợ `Poppler` (Windows & Mac) hoặc `pdftoppm` và `pdftocairo` (Linux). Với Windows, sau khi tải xuống hãy copy thư mục poppler và thư mục `bin` và sửa lại `poppler_path` trong `main.py`
+### Bước 1: Cài đặt các gói phụ trợ
 - [Camelot] Yêu cầu Ghostscipt và Tkinter
 #### Ubuntu
 ```
@@ -46,10 +31,10 @@ $ brew install ghostscript tcl-tk
 #### Windows
 Tải xuống và cài đặt phiên bản cho Windows [tại trang của họ](https://ghostscript.com/releases/gsdnld.html). Sau đó thêm đường dẫn đến thư mục `bin` vào PATH
 Ví dụ: `C:\Program Files\gs\gs9.55.0\bin`
-### Bước 3: Cài đặt thư viện Python
+### Bước 2: Cài đặt thư viện Python
 ```
-pip3 install opencv-python opencv-python-headless==4.5.1.48 tqdm matplotlib pyyaml numpy
-pip3 install camelot-py[cv] pdf2image easyocr
+pip3 install tqdm pyyaml numpy
+pip3 install camelot-py[cv] pymupdf
 ```
 
 ## Chạy ứng dụng
