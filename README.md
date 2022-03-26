@@ -31,7 +31,7 @@ pip3 install torch torchvision torchaudio --extra-index-url https://download.pyt
 pip3 install torch torchvision torchaudio
 ```
 ### Bước 2: Cài đặt các gói phụ trợ
-- [Pdf2image] Theo hướng dẫn [tại đây](https://github.com/Belval/pdf2image#how-to-install) để cài đặt các gói bổ trợ `Poppler` (Windows & Mac) hoặc `pdftoppm` và `pdftocairo` (Linux).
+- [Pdf2image] Theo hướng dẫn [tại đây](https://github.com/Belval/pdf2image#how-to-install) để cài đặt các gói bổ trợ `Poppler` (Windows & Mac) hoặc `pdftoppm` và `pdftocairo` (Linux). Với Windows, sau khi tải xuống hãy copy thư mục poppler và thư mục `bin` và sửa lại `poppler_path` trong `main.py`
 - [Camelot] Yêu cầu Ghostscipt và Tkinter
 #### Ubuntu
 ```
