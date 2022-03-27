@@ -14,13 +14,16 @@ def extract(file_path):
 
     kma = KMAScoreExtract(file_path, poppler_path=poppler_path, temp_path=temp_path)
 
-    kma_score = kma.extract()
+    kma_score, subject_dict = kma.extract()
 
-    db = DBImport(db_file=os.path.join(os.path.abspath(".."), "output", "database.db"))
+    # TODO: Remove this. Use for Dev purpose only
+    # print(kma_score)
+
+    db = DBImport(db_file=os.path.join(os.path.abspath(".."), "output", "database_new.db"))
 
     logging.info("Import to DB")
 
-    db.insert_into_db(kma_score)
+    db.insert_into_db(kma_score, subject_dict)
 
 
 if __name__ == "__main__":

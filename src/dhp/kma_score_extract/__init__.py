@@ -1,7 +1,6 @@
 from pathlib import Path
 import sys
 import logging
-import shutil
 
 path_root = Path(__file__).parents[2]
 sys.path.append(str(path_root))
@@ -36,12 +35,14 @@ class KMAScoreExtract:
         """
         logging.info("Divide page to subject group")
 
-        file_dict = subject_spliter(self.path)
+        file_dict, subject_dict = subject_spliter(self.path)
 
         logging.info(file_dict)
+
+        logging.info(subject_dict)
 
         logging.info("Extract table from pdf")
 
         all_subject = extract_table(self.path, file_dict)
 
-        return all_subject
+        return all_subject, subject_dict

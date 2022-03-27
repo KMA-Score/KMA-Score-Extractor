@@ -63,6 +63,7 @@ def subject_spliter(pdf_file):
      :rtype: dict
     """
     file_dict = {}
+    subject_dict = {}
 
     global_subject_code = ""
 
@@ -75,21 +76,33 @@ def subject_spliter(pdf_file):
 
             page_content_line = page_content.split("\n")
 
-            student_code_line = [x for x in page_content_line if x.__contains__('Mã học phần')]
+            student_code_line = ""
+            subject_noc = ""
 
-            if not student_code_line or not student_code_line[0]:
+            for pcl_index, x in enumerate(page_content_line):
+                if x.__contains__('Mã học phần'):
+                    student_code_line = x
+
+                if x.__contains__('Số TC:'):
+                    subject_noc = page_content_line[pcl_index + 1]
+
+            if not student_code_line:
                 if not global_subject_code:  # Prevent cover and not score page
                     continue
 
                 student_code = global_subject_code  # Prevent page don't have subject code
-
             else:
-                student_code = student_code_line[0].split(":")[1].strip()
+                student_code = student_code_line.split(":")[1].strip()
                 global_subject_code = student_code
+
+            if student_code not in subject_dict.keys():
+                subject_dict[student_code] = {
+                    'noc': subject_noc
+                }
 
             if student_code not in file_dict.keys():
                 file_dict[student_code] = [i]
             else:
                 file_dict[student_code].append(i)
 
-    return file_dict
+    return file_dict, subject_dict

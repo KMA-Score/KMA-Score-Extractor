@@ -2,6 +2,7 @@ import sqlite3
 import logging
 import pandas as pd
 from dhp.db_import.utils import *
+from tqdm import tqdm
 
 
 class DBImport:
@@ -39,26 +40,39 @@ class DBImport:
         """)
 
         cursor.execute("""
-        CREATE TABLE IF NOT EXISTS studentInfo (
+        CREATE TABLE IF NOT EXISTS subjectInfo (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            studentCode VARCHAR(30),
+            subjectCode VARCHAR(30),
             name VARCHAR(255),
-            class VARCHAR(20)
+            noc INTEGER(5)
         );
         """)
 
-    def insert_into_db(self, data):
+    def insert_into_db(self, data, subject_dict):
         """
         Insert into database from Dict
         :param data: Dict from KMA_Score_Extract
         :type data: dict
+        :param subject_dict: Dict of subject info
+        :type subject_dict: dict
         :return: This function no return
         :rtype: void
         """
-        if data is not None:
-            cursor = self.con.cursor()
+        cursor = self.con.cursor()
 
-            for subjectCode, studentsSubjectData in data.items():
+        if subject_dict is not None:
+            for subjectCode, subjectInfo in tqdm(subject_dict.items()):
+                cursor.execute("SELECT id FROM subjectInfo WHERE subjectCode=?", (subjectCode,))
+                rows = cursor.fetchall()
+
+                if len(rows) >= 1:
+                    continue
+
+                cursor.execute("INSERT INTO subjectInfo (subjectCode,noc) VALUES (?,?)",
+                               (clean_text(subjectCode), clean_text(subjectInfo['noc'])))
+
+        if data is not None:
+            for subjectCode, studentsSubjectData in tqdm(data.items()):
                 # studentsSubjectData = data[subjectCode]
 
                 for studentSubjectData in studentsSubjectData:
