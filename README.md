@@ -9,7 +9,7 @@
 - [Giấy phép](https://github.com/Haven-Code/KMA-Score-Extractor/blob/phuchptty-patch-1/README.md#gi%E1%BA%A5y-ph%C3%A9p)
 - [Ủng hộ](https://github.com/Haven-Code/KMA-Score-Extractor/blob/phuchptty-patch-1/README.md#%E1%BB%A7ng-h%E1%BB%99)
 ## Giới thiệu chung
-Dự án được sinh ra nhằm mục đích phục vụ nghiên cứu đồng thời bổ sung tính năng tra cứu điểm cho ứng dụng [iKMA](https://kma.dhpgo.com). Với vai trò là lựa chọn thay thế bên cạnh bảng điểm tại trang QLĐT.
+Dự án được sinh ra nhằm mục đích phục vụ nghiên cứu đồng thời bổ sung tính năng tra cứu điểm cho ứng dụng [iKMA](https://kma.dhpgo.com) và [API tính GPA](https://github.com/arahiko-ayami/kma_score_api). Với vai trò là lựa chọn thay thế bên cạnh bảng điểm tại trang QLĐT.
 ## Công nghệ sử dụng
 Dự án sử dụng công nghệ: 
 - Đọc text-base PDF sử dụng PyMuPDF
@@ -17,7 +17,7 @@ Dự án sử dụng công nghệ:
 - Ngôn ngữ sử dụng: Python 3.9
 ## Cài đặt môi trường
 ### Bước 1: Cài đặt các gói phụ trợ
-- [Camelot] Yêu cầu Ghostscipt và Tkinter
+- [Camelot] Yêu cầu Ghostscript và Tkinter
 #### Ubuntu
 ```
 $ apt install ghostscript python3-tk
@@ -33,7 +33,7 @@ Tải xuống và cài đặt phiên bản cho Windows [tại trang của họ](
 Ví dụ: `C:\Program Files\gs\gs9.55.0\bin`
 ### Bước 2: Cài đặt thư viện Python
 ```
-pip3 install tqdm pyyaml numpy
+pip3 install tqdm pyyaml numpy opencv-python
 pip3 install camelot-py[cv] pymupdf
 ```
 
