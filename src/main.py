@@ -19,7 +19,7 @@ def extract(file_path):
     # TODO: Remove this. Use for Dev purpose only
     # print(kma_score)
 
-    db = DBImport(db_file=os.path.join(os.path.abspath(".."), "output", "database_new.db"))
+    db = DBImport(db_file=os.path.join(os.path.abspath(".."), "output", "database_with_name.db"))
 
     logging.info("Import to DB")
 

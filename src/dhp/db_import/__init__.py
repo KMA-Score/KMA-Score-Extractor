@@ -48,6 +48,15 @@ class DBImport:
         );
         """)
 
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS studentInfo (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                studentCode VARCHAR(30),
+                fullName VARCHAR(255),
+                classCode VARCHAR(255)
+            );
+        """)
+
     def insert_into_db(self, data, subject_dict):
         """
         Insert into database from Dict
@@ -76,6 +85,17 @@ class DBImport:
                 # studentsSubjectData = data[subjectCode]
 
                 for studentSubjectData in studentsSubjectData:
+                    cursor.execute("SELECT id FROM studentInfo WHERE studentCode=?",
+                                   (student_code_format(studentSubjectData[0]),))
+
+                    studentRows = cursor.fetchall()
+
+                    if len(studentRows) < 1:
+                        cursor.execute("INSERT INTO studentInfo (studentCode, fullName, classCode) VALUES (?,?,?)",
+                                       (student_code_format(studentSubjectData[0]),
+                                        student_name_clean_text(studentSubjectData[1]),
+                                        clean_text(studentSubjectData[2])))
+
                     cursor.execute("SELECT id FROM studentScore WHERE studentCode=? AND subjectCode=?",
                                    (student_code_format(studentSubjectData[0]), clean_text(subjectCode)))
 
