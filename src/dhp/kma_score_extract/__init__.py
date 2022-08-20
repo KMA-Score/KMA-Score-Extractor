@@ -1,6 +1,5 @@
 from pathlib import Path
 import sys
-import logging
 
 path_root = Path(__file__).parents[2]
 sys.path.append(str(path_root))
@@ -19,30 +18,39 @@ def _get_absolute_file_list(path):
 
 class KMAScoreExtract:
 
-    def __init__(self, path, poppler_path=None, temp_path=None):
-        self.poppler_path = poppler_path
-        self.temp_path = temp_path
-
-        if path is None:
-            raise Exception("Path must not null")
-
-        self.path = path
+    def __init__(self, folder_path):
+        self.folder_path = folder_path
 
     def extract(self):
         """
         Extract score from pdf
         :return:
         """
-        logging.info("Divide page to subject group")
 
-        file_dict, subject_dict = subject_spliter(self.path)
+        logging.info("Scan folder for sample(s)")
 
-        logging.info(file_dict)
+        files_in_folder = [x for x in os.listdir(self.folder_path) if x.endswith(".pdf")]
 
-        logging.info(subject_dict)
+        logging.info("Found {} file(s)!".format(len(files_in_folder)))
 
-        logging.info("Extract table from pdf")
+        very_huge_subject_data = []
 
-        all_subject = extract_table(self.path, file_dict)
+        for file in files_in_folder:
+            logging.info("Start File {}".format(file))
+            file_path = os.path.join(self.folder_path, file)
 
-        return all_subject, subject_dict
+            logging.info("Divide page to subject group")
+
+            file_dict, subject_dict = subject_spliter(file_path)
+
+            logging.info("File Dict: {}".format(file_dict))
+
+            logging.info("Number Of Credit Dict: {}".format(subject_dict))
+
+            logging.info("Extract table from pdf")
+
+            all_subject = extract_table(file_path, file_dict)
+
+            very_huge_subject_data.append(all_subject)
+
+        return very_huge_subject_data

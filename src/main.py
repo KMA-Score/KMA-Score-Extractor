@@ -6,41 +6,29 @@ import time
 
 logging.basicConfig(level=logging.INFO)
 
-poppler_path = os.path.join(os.path.abspath(".."), "bin", "poppler-22.01.0", "Library", "bin")
 
+def extract(path):
+    kma = KMAScoreExtract(path)
 
-def extract(file_path):
-    temp_path = os.path.join(os.path.abspath(".."), "temp", "pdf2images_ppm")
-
-    kma = KMAScoreExtract(file_path, poppler_path=poppler_path, temp_path=temp_path)
-
-    kma_score, subject_dict = kma.extract()
+    kma_scores = kma.extract()
 
     # TODO: Remove this. Use for Dev purpose only
-    # print(kma_score)
+    # print(kma_scores)
 
-    db = DBImport(db_file=os.path.join(os.path.abspath(".."), "output", "database_with_name.db"))
+    # db = DBImport(db_file=os.path.join(os.path.abspath(".."), "output", "database_with_name.db"))
 
     logging.info("Import to DB")
 
-    db.insert_into_db(kma_score, subject_dict)
+    # db.insert_into_db(kma_score, subject_dict)
 
 
 if __name__ == "__main__":
-    tic = time.time()
+    tik = time.time()
 
     folder_path = os.path.join(os.path.abspath(".."), "sample")
 
-    files_in_folder = [x for x in os.listdir(folder_path) if x.endswith(".pdf")]
+    extract(folder_path)
 
-    logging.info("Found {} file!".format(len(files_in_folder)))
+    tok = time.time()
 
-    for file in files_in_folder:
-        logging.info("Start File {}".format(file))
-        file_path = os.path.join(folder_path, file)
-
-        extract(file_path)
-
-    toc = time.time()
-
-    logging.info("Process time: {} s".format(toc - tic))
+    logging.info("Process time: {:.2f} s".format(tok - tik))
