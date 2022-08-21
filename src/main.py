@@ -15,6 +15,7 @@ def extract(path):
     logging.info("Found {} file(s)!".format(len(files_in_folder)))
 
     db = DBImport(db_file=os.path.join(os.path.abspath(".."), "output", "database.db"))
+    # db = DBImport(db_file=os.path.join("C:\/Users\/phucp\/Desktop", "output", "database.db"))
 
     for file in files_in_folder:
         logging.info("Start File {}".format(file))

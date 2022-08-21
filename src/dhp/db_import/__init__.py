@@ -83,24 +83,26 @@ class DBImport:
                 # studentsSubjectData = data[subjectCode]
 
                 for studentSubjectData in studentsSubjectData:
-                    cursor.execute("SELECT id FROM Students WHERE Id=?",
+                    self_cursor = self.con.cursor()
+
+                    self_cursor.execute("SELECT id FROM Students WHERE Id=?",
                                    (student_code_format(studentSubjectData[0]),))
 
-                    studentRows = cursor.fetchall()
+                    studentRows = self_cursor.fetchall()
 
                     if len(studentRows) < 1:
-                        cursor.execute("INSERT INTO Students (Id, Name, Class) VALUES (?,?,?)",
+                        self_cursor.execute("INSERT INTO Students (Id, Name, Class) VALUES (?,?,?)",
                                        (student_code_format(studentSubjectData[0]),
                                         student_name_clean_text(studentSubjectData[1]),
                                         clean_text(studentSubjectData[2])))
 
-                    cursor.execute("SELECT Id FROM Scores WHERE StudentId=? AND SubjectId=?",
+                    self_cursor.execute("SELECT Id FROM Scores WHERE StudentId=? AND SubjectId=?",
                                    (student_code_format(studentSubjectData[0]), clean_text(subjectCode)))
 
-                    rows = cursor.fetchall()
+                    rows = self_cursor.fetchall()
 
                     if len(rows) >= 1:
-                        cursor.execute('''
+                        self_cursor.execute('''
                         UPDATE Scores 
                         SET 
                             FirstComponentScore=?,
@@ -121,7 +123,7 @@ class DBImport:
                         ))
 
                     else:
-                        cursor.execute('''
+                        self_cursor.execute('''
                         INSERT INTO Scores (
                             StudentId,
                             SubjectId,
@@ -140,7 +142,9 @@ class DBImport:
                             clean_text(studentSubjectData[7]))
                                        )
 
-            self.con.commit()
+                    # Todo: Need to find out in or out loop better
+                    self.con.commit()
+                    self_cursor.close()
 
             logging.info("Import to DB success")
 
