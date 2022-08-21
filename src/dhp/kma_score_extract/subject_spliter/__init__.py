@@ -1,8 +1,11 @@
+import json
 import os
-from dhp.kma_score_extract.subject_spliter.ocr import *
-from tqdm import tqdm
-import numpy as np
+
 import fitz
+import numpy as np
+from tqdm import tqdm
+
+from dhp.kma_score_extract.subject_spliter.ocr import *
 
 
 def _get_file_list(temp_folder):
@@ -68,6 +71,11 @@ def subject_spliter(pdf_file):
     global_subject_code = ""
 
     with fitz.open(pdf_file) as pages:
+        subject_mapping_file = open(
+            os.path.join(os.path.abspath('dhp'), 'kma_score_extract', 'subject_spliter', 'subjectNameMapping.json'),
+            encoding="utf-8")
+        subject_mapping = json.loads(subject_mapping_file.read())
+
         for i, page in enumerate(tqdm(pages)):
             page_content = page.get_text()
 
@@ -90,19 +98,27 @@ def subject_spliter(pdf_file):
                 if not global_subject_code:  # Prevent cover and not score page
                     continue
 
-                student_code = global_subject_code  # Prevent page don't have subject code
+                subject_code = global_subject_code  # Prevent page don't have subject code
             else:
-                student_code = student_code_line.split(":")[1].strip()
-                global_subject_code = student_code
+                subject_code = student_code_line.split(":")[1].strip()
+                global_subject_code = subject_code
 
-            if student_code not in subject_dict.keys():
-                subject_dict[student_code] = {
-                    'noc': subject_noc
+            if subject_code not in subject_dict.keys():
+                subject_data = next((item for item in subject_mapping if item["subjectCode"] == subject_code), None)
+
+                if subject_data is not None:
+                    subject_name = subject_data.get('name', 'NULL')
+                else:
+                    subject_name = "NULL"
+
+                subject_dict[subject_code] = {
+                    'noc': subject_noc,
+                    'name': subject_name
                 }
 
-            if student_code not in file_dict.keys():
-                file_dict[student_code] = [i]
+            if subject_code not in file_dict.keys():
+                file_dict[subject_code] = [i]
             else:
-                file_dict[student_code].append(i)
+                file_dict[subject_code].append(i)
 
     return file_dict, subject_dict

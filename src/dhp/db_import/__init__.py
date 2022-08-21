@@ -75,8 +75,9 @@ class DBImport:
                 if len(rows) >= 1:
                     continue
 
-                cursor.execute("INSERT INTO Subjects (Id, NumberOfCredits) VALUES (?,?)",
-                               (clean_text(subjectCode), clean_text(subjectInfo['noc'])))
+                cursor.execute("INSERT INTO Subjects (Id,Name, NumberOfCredits) VALUES (?,?,?)",
+                               (clean_text(subjectCode), clean_text(subjectInfo['name']),
+                                clean_text(subjectInfo['noc'])))
 
         if data is not None:
             for subjectCode, studentsSubjectData in tqdm(data.items()):
@@ -86,18 +87,18 @@ class DBImport:
                     self_cursor = self.con.cursor()
 
                     self_cursor.execute("SELECT id FROM Students WHERE Id=?",
-                                   (student_code_format(studentSubjectData[0]),))
+                                        (student_code_format(studentSubjectData[0]),))
 
                     studentRows = self_cursor.fetchall()
 
                     if len(studentRows) < 1:
                         self_cursor.execute("INSERT INTO Students (Id, Name, Class) VALUES (?,?,?)",
-                                       (student_code_format(studentSubjectData[0]),
-                                        student_name_clean_text(studentSubjectData[1]),
-                                        clean_text(studentSubjectData[2])))
+                                            (student_code_format(studentSubjectData[0]),
+                                             student_name_clean_text(studentSubjectData[1]),
+                                             clean_text(studentSubjectData[2])))
 
                     self_cursor.execute("SELECT Id FROM Scores WHERE StudentId=? AND SubjectId=?",
-                                   (student_code_format(studentSubjectData[0]), clean_text(subjectCode)))
+                                        (student_code_format(studentSubjectData[0]), clean_text(subjectCode)))
 
                     rows = self_cursor.fetchall()
 
@@ -140,7 +141,7 @@ class DBImport:
                             clean_text(studentSubjectData[5]),
                             clean_text(studentSubjectData[6]),
                             clean_text(studentSubjectData[7]))
-                                       )
+                                            )
 
                     # Todo: Need to find out in or out loop better
                     self.con.commit()

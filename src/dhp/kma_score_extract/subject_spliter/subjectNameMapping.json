@@ -1,0 +1,806 @@
+[
+  {
+    "id": 1,
+    "subjectCode": "ATQGTC1",
+    "name": "Giáo dục thể chất 1",
+    "noc": 1
+  },
+  {
+    "id": 2,
+    "subjectCode": "ATCTHT1",
+    "name": "Tin học đại cương",
+    "noc": 2
+  },
+  {
+    "id": 3,
+    "subjectCode": "ATCBTT7",
+    "name": "Toán cao cấp A1",
+    "noc": 3
+  },
+  {
+    "id": 4,
+    "subjectCode": "ATCBTT3",
+    "name": "Toán cao cấp A3",
+    "noc": 3
+  },
+  {
+    "id": 5,
+    "subjectCode": "AT1LLLM1",
+    "name": "Triết học Mác - Lênin",
+    "noc": 3
+  },
+  {
+    "id": 6,
+    "subjectCode": "ATCTHT3",
+    "name": "Lập trình căn bản",
+    "noc": 3
+  },
+  {
+    "id": 7,
+    "subjectCode": "AT1LLLM3",
+    "name": "Chủ nghĩa xã hội khoa học",
+    "noc": 2
+  },
+  {
+    "id": 8,
+    "subjectCode": "ATQGTC2",
+    "name": "Giáo dục thể chất 2",
+    "noc": 1
+  },
+  {
+    "id": 9,
+    "subjectCode": "AT1LLLM2",
+    "name": "Kinh tế chính trị Mác - Lênin",
+    "noc": 2
+  },
+  {
+    "id": 10,
+    "subjectCode": "ATLLDL2",
+    "name": "Kỹ năng mềm",
+    "noc": 2
+  },
+  {
+    "id": 11,
+    "subjectCode": "ATCBTT2",
+    "name": "Toán cao cấp A2",
+    "noc": 3
+  },
+  {
+    "id": 12,
+    "subjectCode": "ATCBLH1",
+    "name": "Vật lý đại cương A1",
+    "noc": 3
+  },
+  {
+    "id": 13,
+    "subjectCode": "CTCBTT7",
+    "name": "Phương pháp tính",
+    "noc": 2
+  },
+  {
+    "id": 14,
+    "subjectCode": "ATCBTT8",
+    "name": "Toán xác suất thống kê",
+    "noc": 2
+  },
+  {
+    "id": 15,
+    "subjectCode": "ATCBLH2",
+    "name": "Vật lý đại cương A2",
+    "noc": 3
+  },
+  {
+    "id": 16,
+    "subjectCode": "ATCBNN1",
+    "name": "Tiếng Anh 1",
+    "noc": 3
+  },
+  {
+    "id": 17,
+    "subjectCode": "ATCTHT11",
+    "name": "Công nghệ mạng máy tính (Mạng máy tính)",
+    "noc": 3
+  },
+  {
+    "id": 18,
+    "subjectCode": "ATQGTC3",
+    "name": "Giáo dục thể chất 3",
+    "noc": 1
+  },
+  {
+    "id": 19,
+    "subjectCode": "ATLLLM3",
+    "name": "Tâm lý học đại cương (môn thay thế)",
+    "noc": 2
+  },
+  {
+    "id": 20,
+    "subjectCode": "ATCBTT5",
+    "name": "Toán chuyên đề",
+    "noc": 2
+  },
+  {
+    "id": 21,
+    "subjectCode": "ATLLTH1",
+    "name": "Tư tưởng Hồ Chí Minh",
+    "noc": 2
+  },
+  {
+    "id": 22,
+    "subjectCode": "ATATAT2",
+    "name": "An toàn mạng máy tính",
+    "noc": 4
+  },
+  {
+    "id": 23,
+    "subjectCode": "ATATTM3",
+    "name": "Giao thức an toàn mạng",
+    "noc": 2
+  },
+  {
+    "id": 24,
+    "subjectCode": "ATATKH3",
+    "name": "Kỹ thuật giấu tin",
+    "noc": 2
+  },
+  {
+    "id": 25,
+    "subjectCode": "ATCTHT2",
+    "name": "Kiến trúc máy tính",
+    "noc": 2
+  },
+  {
+    "id": 26,
+    "subjectCode": "ATCTKM8",
+    "name": "Phân tích",
+    "noc": "thiết kế hệ thống"
+  },
+  {
+    "id": 27,
+    "subjectCode": "ATCBNN7",
+    "name": "Tiếng Anh chuyên ngành (ATTT)",
+    "noc": 4
+  },
+  {
+    "id": 28,
+    "subjectCode": "AT1LLDL1",
+    "name": "Lịch sử Đảng cộng sản Việt Nam",
+    "noc": 2
+  },
+  {
+    "id": 29,
+    "subjectCode": "ATCBTT6",
+    "name": "Toán rời rạc",
+    "noc": 2
+  },
+  {
+    "id": 30,
+    "subjectCode": "CTCTHT18",
+    "name": "Lập trình driver",
+    "noc": 4
+  },
+  {
+    "id": 31,
+    "subjectCode": "CTCTHT17",
+    "name": "Lập trình nhân Linux",
+    "noc": 4
+  },
+  {
+    "id": 32,
+    "subjectCode": "CTCBNN7",
+    "name": "Tiếng Anh chuyên ngành (CNTT)",
+    "noc": 4
+  },
+  {
+    "id": 33,
+    "subjectCode": "ATCTHT8",
+    "name": "Otomat và ngôn ngữ hình thức",
+    "noc": 2
+  },
+  {
+    "id": 34,
+    "subjectCode": "DT1DVVT7",
+    "name": "Phát triển ứng dụng IoT",
+    "noc": 3
+  },
+  {
+    "id": 35,
+    "subjectCode": "DT1DVDM7",
+    "name": "Thiết kế hệ thống nhúng",
+    "noc": 3
+  },
+  {
+    "id": 36,
+    "subjectCode": "DT1CBNN7",
+    "name": "Tiếng Anh chuyên ngành",
+    "noc": 4
+  },
+  {
+    "id": 37,
+    "subjectCode": "DT1DVDM3",
+    "name": "Thiết kế hệ thống số",
+    "noc": 3
+  },
+  {
+    "id": 38,
+    "subjectCode": "DT1DVKD1",
+    "name": "Linh kiện điện tử",
+    "noc": 3
+  },
+  {
+    "id": 39,
+    "subjectCode": "DT1DVKD4",
+    "name": "Tín hiệu và hệ thống",
+    "noc": 2
+  },
+  {
+    "id": 40,
+    "subjectCode": "ATATAT4",
+    "name": "Đánh giá & kiểm định AT hệ TTT",
+    "noc": 3
+  },
+  {
+    "id": 41,
+    "subjectCode": "ATATAT3",
+    "name": "Phân tích",
+    "noc": "thiết kế an toàn mạng máy tính"
+  },
+  {
+    "id": 42,
+    "subjectCode": "ATATTM4",
+    "name": "Thu thập và phân tích TT AN mạng",
+    "noc": 3
+  },
+  {
+    "id": 43,
+    "subjectCode": "ATCTKM6",
+    "name": "Lập trình mạng",
+    "noc": 2
+  },
+  {
+    "id": 44,
+    "subjectCode": "ATCTKM7",
+    "name": "Phát triển ứng dụng web",
+    "noc": 2
+  },
+  {
+    "id": 45,
+    "subjectCode": "ATCTHT7",
+    "name": "Nguyên lý hệ điều hành",
+    "noc": 2
+  },
+  {
+    "id": 46,
+    "subjectCode": "ATDVDV4",
+    "name": "Hệ thống viễn thông",
+    "noc": 3
+  },
+  {
+    "id": 47,
+    "subjectCode": "ATDVKV3",
+    "name": "Xử lý tín hiệu số",
+    "noc": 2
+  },
+  {
+    "id": 48,
+    "subjectCode": "ATDVDV3",
+    "name": "Kỹ thuật đo lường điện tử",
+    "noc": 2
+  },
+  {
+    "id": 49,
+    "subjectCode": "ATDVDV2",
+    "name": "Kỹ thuật truyền số liệu",
+    "noc": 2
+  },
+  {
+    "id": 50,
+    "subjectCode": "ATATPM2",
+    "name": "Thuật toán trong an toàn thông tin",
+    "noc": 2
+  },
+  {
+    "id": 51,
+    "subjectCode": "ATCTKM2",
+    "name": "Lý thuyết cơ sở dữ liệu",
+    "noc": 2
+  },
+  {
+    "id": 52,
+    "subjectCode": "ATCTHT12",
+    "name": "Quản trị mạng máy tính",
+    "noc": 2
+  },
+  {
+    "id": 53,
+    "subjectCode": "ATCBNN2",
+    "name": "Tiếng Anh 2",
+    "noc": 3
+  },
+  {
+    "id": 54,
+    "subjectCode": "CTCTKM14",
+    "name": "Phát triển phần mềm trong thẻ thông minh",
+    "noc": 3
+  },
+  {
+    "id": 55,
+    "subjectCode": "CTCTKM10",
+    "name": "Lập trình Android cơ bản (có thể thay thế)",
+    "noc": 3
+  },
+  {
+    "id": 56,
+    "subjectCode": "CTCTHT22",
+    "name": "Lập trình hệ thống nhúng Linux (có thể thay thế)",
+    "noc": 3
+  },
+  {
+    "id": 57,
+    "subjectCode": "CTDVDV3",
+    "name": "Hệ thống thông tin di động",
+    "noc": 2
+  },
+  {
+    "id": 58,
+    "subjectCode": "CTCTKM4",
+    "name": "Chương trình dịch",
+    "noc": 2
+  },
+  {
+    "id": 59,
+    "subjectCode": "ATDVKD5",
+    "name": "Điện tử tương tự và điện tử số",
+    "noc": 3
+  },
+  {
+    "id": 60,
+    "subjectCode": "ATQGTC4",
+    "name": "Giáo dục thể chất 4",
+    "noc": 1
+  },
+  {
+    "id": 61,
+    "subjectCode": "DT1MMKH1",
+    "name": "Mật mã lý thuyết",
+    "noc": 2
+  },
+  {
+    "id": 62,
+    "subjectCode": "DT1DVKD5",
+    "name": "Điện tử tương tự",
+    "noc": 3
+  },
+  {
+    "id": 63,
+    "subjectCode": "DT1DVKD2",
+    "name": "Lý thuyết mạch",
+    "noc": 2
+  },
+  {
+    "id": 64,
+    "subjectCode": "DT1DVKV1",
+    "name": "Điện tử số",
+    "noc": 3
+  },
+  {
+    "id": 65,
+    "subjectCode": "ATLLDL1",
+    "name": "Đường lối cách mạng của Đảng CSVN",
+    "noc": 3
+  },
+  {
+    "id": 66,
+    "subjectCode": "ATLLLM2",
+    "name": "Những NLCB của CNMLN (HP2)",
+    "noc": 3
+  },
+  {
+    "id": 67,
+    "subjectCode": "ATCTHT5",
+    "name": "Bộ giao thức TCP/IP và định tuyến mạng",
+    "noc": 3
+  },
+  {
+    "id": 68,
+    "subjectCode": "ATCTKM4",
+    "name": "Kỹ thuật lập trình",
+    "noc": 2
+  },
+  {
+    "id": 69,
+    "subjectCode": "ATATTM5",
+    "name": "Chứng thực điện tử",
+    "noc": 3
+  },
+  {
+    "id": 70,
+    "subjectCode": "ATATAP2",
+    "name": "Mã độc",
+    "noc": 3
+  },
+  {
+    "id": 71,
+    "subjectCode": "ATATAP4",
+    "name": "Phát hiện lỗi và lỗ hổng bảo mật phần mềm",
+    "noc": 2
+  },
+  {
+    "id": 72,
+    "subjectCode": "ATATTM6",
+    "name": "Phòng chống và điều tra tội phạm máy tính",
+    "noc": 2
+  },
+  {
+    "id": 73,
+    "subjectCode": "ATATAP1",
+    "name": "Xây dựng ứng dụng web an toàn",
+    "noc": 2
+  },
+  {
+    "id": 74,
+    "subjectCode": "ATATAT1",
+    "name": "An toàn hệ điều hành",
+    "noc": 3
+  },
+  {
+    "id": 75,
+    "subjectCode": "ATATKH5",
+    "name": "Quản lý và xây dựng chính sách ATTT",
+    "noc": 2
+  },
+  {
+    "id": 76,
+    "subjectCode": "ATCTKM10",
+    "name": "Phát triển phần mềm ứng dụng (môn thay thế)",
+    "noc": 2
+  },
+  {
+    "id": 77,
+    "subjectCode": "ATCTHT10",
+    "name": "Thực tập cơ sở chuyên ngành",
+    "noc": 3
+  },
+  {
+    "id": 78,
+    "subjectCode": "ATATTM2",
+    "name": "An toàn cơ sở dữ liệu",
+    "noc": 2
+  },
+  {
+    "id": 79,
+    "subjectCode": "ATCTKM5",
+    "name": "Lập trình hướng đối tượng",
+    "noc": 2
+  },
+  {
+    "id": 80,
+    "subjectCode": "ATCBNN6",
+    "name": "Tiếng Anh 3",
+    "noc": 4
+  },
+  {
+    "id": 81,
+    "subjectCode": "ATLLLM6",
+    "name": "Pháp luật Việt Nam đại cương",
+    "noc": 2
+  },
+  {
+    "id": 82,
+    "subjectCode": "CTCTHT31",
+    "name": "An toàn và bảo mật trong phát triển PM di động",
+    "noc": 3
+  },
+  {
+    "id": 83,
+    "subjectCode": "CTCTKM20",
+    "name": "Phát triển game trên Android (có thể thay thế)",
+    "noc": 3
+  },
+  {
+    "id": 84,
+    "subjectCode": "CTCTHT28",
+    "name": "Thị giác máy tính trên nền nhúng (có thể thay thế)",
+    "noc": 3
+  },
+  {
+    "id": 85,
+    "subjectCode": "CTCTKM16",
+    "name": "Tối ưu phần mềm nhúng",
+    "noc": 3
+  },
+  {
+    "id": 86,
+    "subjectCode": "CTCTHT13",
+    "name": "Cơ sở an toàn và bảo mật thông tin",
+    "noc": 3
+  },
+  {
+    "id": 87,
+    "subjectCode": "CTCTHT12",
+    "name": "Kiểm thử phần mềm nhúng",
+    "noc": 2
+  },
+  {
+    "id": 88,
+    "subjectCode": "CTCTKM9",
+    "name": "Quản trị dự án phần mềm",
+    "noc": 2
+  },
+  {
+    "id": 89,
+    "subjectCode": "CTCTHT16",
+    "name": "Thực tập cơ sở chuyên ngành",
+    "noc": 3
+  },
+  {
+    "id": 90,
+    "subjectCode": "ATQGTC5",
+    "name": "Giáo dục thể chất 5",
+    "noc": 1
+  },
+  {
+    "id": 91,
+    "subjectCode": "ATCBLH3",
+    "name": "Thực hành vật lý đại cương 1&2",
+    "noc": 2
+  },
+  {
+    "id": 92,
+    "subjectCode": "DT1DVDA2",
+    "name": "Đồ án 2",
+    "noc": 2
+  },
+  {
+    "id": 93,
+    "subjectCode": "DT1DVDM6",
+    "name": "Hệ thống nhúng",
+    "noc": 3
+  },
+  {
+    "id": 94,
+    "subjectCode": "DT1DVVT5",
+    "name": "Hệ thống viễn thông",
+    "noc": 2
+  },
+  {
+    "id": 95,
+    "subjectCode": "DT1DVTT2",
+    "name": "Thực tập cơ sở 2",
+    "noc": 2
+  },
+  {
+    "id": 96,
+    "subjectCode": "DT1DVDT3",
+    "name": "Thông tin số",
+    "noc": 2
+  },
+  {
+    "id": 97,
+    "subjectCode": "DT1DVKD3",
+    "name": "Kỹ thuật điện",
+    "noc": 2
+  },
+  {
+    "id": 98,
+    "subjectCode": "CTCTHT19",
+    "name": "Lập trình ARM cơ bản (có thể thay thế)",
+    "noc": 3
+  },
+  {
+    "id": 99,
+    "subjectCode": "DT1DVDT12",
+    "name": "Thiết kế PLC",
+    "noc": 3
+  },
+  {
+    "id": 100,
+    "subjectCode": "DT1DVDM8",
+    "name": "An toàn hệ thống nhúng",
+    "noc": 3
+  },
+  {
+    "id": 101,
+    "subjectCode": "DT1DVDM9",
+    "name": "Mạng các hệ thống nhúng",
+    "noc": 3
+  },
+  {
+    "id": 102,
+    "subjectCode": "DT1DVTT3",
+    "name": "Thực tập cơ sở 3",
+    "noc": 2
+  },
+  {
+    "id": 103,
+    "subjectCode": "DT1DVDA3",
+    "name": "Đồ án 3",
+    "noc": 2
+  },
+  {
+    "id": 104,
+    "subjectCode": "DT1DVDT10",
+    "name": "Kỹ thuật cảm biến",
+    "noc": 2
+  },
+  {
+    "id": 105,
+    "subjectCode": "DT1DVDA1",
+    "name": "Đồ án 1",
+    "noc": 2
+  },
+  {
+    "id": 106,
+    "subjectCode": "DT1DVDT9",
+    "name": "Điện tử công nghiệp",
+    "noc": 2
+  },
+  {
+    "id": 107,
+    "subjectCode": "DT1DVKD6",
+    "name": "Điện tử công suất",
+    "noc": 2
+  },
+  {
+    "id": 108,
+    "subjectCode": "ATLLLM1",
+    "name": "Những NLCB của CNMLN (HP1)",
+    "noc": 2
+  },
+  {
+    "id": 109,
+    "subjectCode": "ATATAT6",
+    "name": "An toàn điện toán đám mây",
+    "noc": 2
+  },
+  {
+    "id": 110,
+    "subjectCode": "ATATTM7",
+    "name": "An toàn internet & TM điện tử",
+    "noc": 2
+  },
+  {
+    "id": 111,
+    "subjectCode": "ATATAT5",
+    "name": "Quản trị an toàn hệ thống",
+    "noc": 4
+  },
+  {
+    "id": 112,
+    "subjectCode": "ATATAP3",
+    "name": "Kỹ thuật lập trình an toàn",
+    "noc": 3
+  },
+  {
+    "id": 113,
+    "subjectCode": "ATATKH4",
+    "name": "Mật mã ứng dụng trong an toàn thông tin",
+    "noc": 3
+  },
+  {
+    "id": 114,
+    "subjectCode": "ATATKH2",
+    "name": "Cơ sở lý thuyết mật mã",
+    "noc": 3
+  },
+  {
+    "id": 115,
+    "subjectCode": "ATATKH1",
+    "name": "Cơ sở an toàn thông tin",
+    "noc": 3
+  },
+  {
+    "id": 116,
+    "subjectCode": "AT.KH1",
+    "name": "Nhập môn mật mã học",
+    "noc": 3
+  },
+  {
+    "id": 117,
+    "subjectCode": "ATCTKM1",
+    "name": "Cấu trúc dữ liệu và giải thuật",
+    "noc": 2
+  },
+  {
+    "id": 118,
+    "subjectCode": "ATCTKM3",
+    "name": "Hệ quản trị cơ sở dữ liệu",
+    "noc": 2
+  },
+  {
+    "id": 119,
+    "subjectCode": "ATDVDV1",
+    "name": "Cơ sở lý thuyết truyền tin",
+    "noc": 2
+  },
+  {
+    "id": 120,
+    "subjectCode": "CTCTKM17",
+    "name": "Lập trình Android nâng cao (có thể thay thế)",
+    "noc": 3
+  },
+  {
+    "id": 121,
+    "subjectCode": "CTCTHT32",
+    "name": "Tối ưu phần mềm di động",
+    "noc": 3
+  },
+  {
+    "id": 122,
+    "subjectCode": "CTCTHT25",
+    "name": "Lập trình ARM nâng cao (có thể thay thế)",
+    "noc": 3
+  },
+  {
+    "id": 123,
+    "subjectCode": "CTCTKM15",
+    "name": "An toàn và bảo mật trong hệ thống nhúng",
+    "noc": 3
+  },
+  {
+    "id": 124,
+    "subjectCode": "CTCTHT10",
+    "name": "Công nghệ phần mềm nhúng",
+    "noc": 2
+  },
+  {
+    "id": 125,
+    "subjectCode": "CTCTHT15",
+    "name": "Lập trình hợp ngữ",
+    "noc": 3
+  },
+  {
+    "id": 126,
+    "subjectCode": "CTCTHT14",
+    "name": "Linux và phần mềm nguồn mở",
+    "noc": 2
+  },
+  {
+    "id": 127,
+    "subjectCode": "CTCTHT11",
+    "name": "Hệ điều hành nhúng thời gian thực",
+    "noc": 3
+  },
+  {
+    "id": 128,
+    "subjectCode": "ATDVKV2",
+    "name": "Kỹ thuật vi xử lý",
+    "noc": 2
+  },
+  {
+    "id": 129,
+    "subjectCode": "DT1DVVT6",
+    "name": "Cơ sở thiết kế VLSI",
+    "noc": 3
+  },
+  {
+    "id": 130,
+    "subjectCode": "DT1DVDM4",
+    "name": "Thiết bị ngoại vi và kỹ thuật ghép nối",
+    "noc": 2
+  },
+  {
+    "id": 131,
+    "subjectCode": "DT1DVDM5",
+    "name": "Xử lý tín hiệu số",
+    "noc": 3
+  },
+  {
+    "id": 132,
+    "subjectCode": "DT1DVDT8",
+    "name": "Cơ sở điều khiển tự động",
+    "noc": 2
+  },
+  {
+    "id": 133,
+    "subjectCode": "DT1DVDM2",
+    "name": "Kỹ thuật vi xử lý",
+    "noc": 3
+  },
+  {
+    "id": 134,
+    "subjectCode": "CTKH11",
+    "name": "Phân tích, thiết kế hệ thống thông tin",
+    "noc": 2
+  }
+]
