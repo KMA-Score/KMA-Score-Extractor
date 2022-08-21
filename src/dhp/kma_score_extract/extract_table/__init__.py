@@ -37,8 +37,14 @@ def extract_table(file, file_dict):
     for i, page in enumerate(tqdm(pdf_instance.pages)):
         table = page.extract_table()
 
+        if table is None:
+            continue
+
         # Process table
         table_df = pd.DataFrame(table)  # Kinda hack but whatever
+
+        if len(table_df.columns) < 10:
+            continue
 
         cols_needed = table_df.iloc[1:, [2, 3, 4, 5, 6, 7, 8, 9]]
 

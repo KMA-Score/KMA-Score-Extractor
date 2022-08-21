@@ -8,18 +8,29 @@ logging.basicConfig(level=logging.INFO)
 
 
 def extract(path):
-    kma = KMAScoreExtract(path)
+    logging.info("Scan folder for sample(s)")
 
-    kma_scores = kma.extract()
+    files_in_folder = [x for x in os.listdir(path) if x.endswith(".pdf")]
 
-    # TODO: Remove this. Use for Dev purpose only
-    # print(kma_scores)
+    logging.info("Found {} file(s)!".format(len(files_in_folder)))
 
-    # db = DBImport(db_file=os.path.join(os.path.abspath(".."), "output", "database_with_name.db"))
+    db = DBImport(db_file=os.path.join(os.path.abspath(".."), "output", "database.db"))
 
-    logging.info("Import to DB")
+    for file in files_in_folder:
+        logging.info("Start File {}".format(file))
 
-    # db.insert_into_db(kma_score, subject_dict)
+        file_path = os.path.join(path, file)
+
+        kma = KMAScoreExtract(file_path)
+
+        kma_scores, subject_dict = kma.extract()
+
+        # TODO: Remove this. Use for Dev purpose only
+        # print(kma_scores)
+
+        logging.info("Import to DB")
+
+        db.insert_into_db(kma_scores, subject_dict)
 
 
 if __name__ == "__main__":
