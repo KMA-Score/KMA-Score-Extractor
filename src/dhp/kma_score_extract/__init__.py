@@ -1,6 +1,5 @@
 from pathlib import Path
 import sys
-import logging
 
 path_root = Path(__file__).parents[2]
 sys.path.append(str(path_root))
@@ -19,30 +18,25 @@ def _get_absolute_file_list(path):
 
 class KMAScoreExtract:
 
-    def __init__(self, path, poppler_path=None, temp_path=None):
-        self.poppler_path = poppler_path
-        self.temp_path = temp_path
-
-        if path is None:
-            raise Exception("Path must not null")
-
-        self.path = path
+    def __init__(self, file_path):
+        self.file_path = file_path
 
     def extract(self):
         """
         Extract score from pdf
         :return:
         """
+
         logging.info("Divide page to subject group")
 
-        file_dict, subject_dict = subject_spliter(self.path)
+        file_dict, subject_dict = subject_spliter(self.file_path)
 
-        logging.info(file_dict)
+        logging.info("File Dict: {}".format(file_dict))
 
-        logging.info(subject_dict)
+        logging.info("Number Of Credit Dict: {}".format(subject_dict))
 
         logging.info("Extract table from pdf")
 
-        all_subject = extract_table(self.path, file_dict)
+        all_subject = extract_table(self.file_path, file_dict)
 
         return all_subject, subject_dict

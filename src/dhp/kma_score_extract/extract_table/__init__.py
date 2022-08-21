@@ -1,14 +1,9 @@
-import camelot
-from sys import platform
+import logging
 
-# checking ghostscript for Windows environment
-import ctypes
-from ctypes.util import find_library
+import pandas as pd
+import pdfplumber
 
-if platform == "linux" or platform == "linux2" or platform == "darwin":
-    find_library("gs")
-elif platform == "win32":
-    find_library("".join(("gsdll", str(ctypes.sizeof(ctypes.c_voidp) * 8), ".dll")))
+from tqdm import tqdm
 
 
 def _find_keys(file_dict, page):
@@ -32,21 +27,28 @@ def extract_table(file, file_dict):
     :return: A dict that contain subjectCode-Score By StudentCode format
     :rtype: dict
     """
-    tables = camelot.read_pdf(file, pages='all')
 
     all_subject_score = {}
 
-    for i, table in enumerate(tables):
-        table_pd = table.df
+    logging.info("Extract file {}".format(file))
 
-        if len(table_pd.columns) < 10:
+    pdf_instance = pdfplumber.open(file)
+
+    for i, page in enumerate(tqdm(pdf_instance.pages)):
+        table = page.extract_table()
+
+        if table is None:
             continue
 
-        # TODO: Fix. OCR sometime merge SDB and StudentName column
-        if len(table_pd.columns) == 10:
-            cols_needed = table_pd.iloc[1:, [1, 2, 3, 4, 5, 6, 7, 8]]
-        else:
-            cols_needed = table_pd.iloc[1:, [2, 3, 4, 5, 6, 7, 8, 9]]
+        # Process table
+        table_df = pd.DataFrame(table)  # Kinda hack but whatever
+
+        if len(table_df.columns) < 10:
+            continue
+
+        cols_needed = table_df.iloc[1:, [2, 3, 4, 5, 6, 7, 8, 9]]
+
+        # Add to dict
 
         key = _find_keys(file_dict, i)
 

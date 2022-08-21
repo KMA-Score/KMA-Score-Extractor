@@ -6,41 +6,40 @@ import time
 
 logging.basicConfig(level=logging.INFO)
 
-poppler_path = os.path.join(os.path.abspath(".."), "bin", "poppler-22.01.0", "Library", "bin")
 
+def extract(path):
+    logging.info("Scan folder for sample(s)")
 
-def extract(file_path):
-    temp_path = os.path.join(os.path.abspath(".."), "temp", "pdf2images_ppm")
+    files_in_folder = [x for x in os.listdir(path) if x.endswith(".pdf")]
 
-    kma = KMAScoreExtract(file_path, poppler_path=poppler_path, temp_path=temp_path)
+    logging.info("Found {} file(s)!".format(len(files_in_folder)))
 
-    kma_score, subject_dict = kma.extract()
-
-    # TODO: Remove this. Use for Dev purpose only
-    # print(kma_score)
-
-    db = DBImport(db_file=os.path.join(os.path.abspath(".."), "output", "database_with_name.db"))
-
-    logging.info("Import to DB")
-
-    db.insert_into_db(kma_score, subject_dict)
-
-
-if __name__ == "__main__":
-    tic = time.time()
-
-    folder_path = os.path.join(os.path.abspath(".."), "sample")
-
-    files_in_folder = [x for x in os.listdir(folder_path) if x.endswith(".pdf")]
-
-    logging.info("Found {} file!".format(len(files_in_folder)))
+    db = DBImport(db_file=os.path.join(os.path.abspath(".."), "output", "database.db"))
 
     for file in files_in_folder:
         logging.info("Start File {}".format(file))
-        file_path = os.path.join(folder_path, file)
 
-        extract(file_path)
+        file_path = os.path.join(path, file)
 
-    toc = time.time()
+        kma = KMAScoreExtract(file_path)
 
-    logging.info("Process time: {} s".format(toc - tic))
+        kma_scores, subject_dict = kma.extract()
+
+        # TODO: Remove this. Use for Dev purpose only
+        # print(kma_scores)
+
+        logging.info("Import to DB")
+
+        db.insert_into_db(kma_scores, subject_dict)
+
+
+if __name__ == "__main__":
+    tik = time.time()
+
+    folder_path = os.path.join(os.path.abspath(".."), "sample")
+
+    extract(folder_path)
+
+    tok = time.time()
+
+    logging.info("Process time: {:.2f} s".format(tok - tik))

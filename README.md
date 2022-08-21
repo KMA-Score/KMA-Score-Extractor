@@ -15,26 +15,9 @@ Dự án sử dụng công nghệ:
 - Đọc text-base PDF sử dụng PyMuPDF
 - Database: Sqlite3
 - Ngôn ngữ sử dụng: Python 3.9
-## Cài đặt môi trường
-### Bước 1: Cài đặt các gói phụ trợ
-- [Camelot] Yêu cầu Ghostscript và Tkinter
-#### Ubuntu
+## Cài đặt thư viện cần thiết
 ```
-$ apt install ghostscript python3-tk
-```
-
-#### MacOS
-```
-$ brew install ghostscript tcl-tk
-```
-
-#### Windows
-Tải xuống và cài đặt phiên bản cho Windows [tại trang của họ](https://ghostscript.com/releases/gsdnld.html). Sau đó thêm đường dẫn đến thư mục `bin` vào PATH
-Ví dụ: `C:\Program Files\gs\gs9.55.0\bin`
-### Bước 2: Cài đặt thư viện Python
-```
-pip3 install tqdm pyyaml numpy opencv-python
-pip3 install camelot-py[cv] pymupdf
+pip3 install tqdm pyyaml numpy pymupdf fitz sqlite3 pdfplumber
 ```
 
 ## Chạy ứng dụng

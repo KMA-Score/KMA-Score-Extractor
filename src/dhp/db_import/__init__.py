@@ -27,34 +27,32 @@ class DBImport:
         cursor = self.con.cursor()
 
         cursor.execute("""
-        CREATE TABLE IF NOT EXISTS studentScore (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            studentCode VARCHAR(30),
-            subjectCode VARCHAR(30),
-            TP1 VARCHAR(5),
-            TP2 VARCHAR(5),
-            THI VARCHAR(5),
-            TONGKET VARCHAR(5),
-            DIEMCHU VARCHAR(5)
-        );
+        CREATE TABLE IF NOT EXISTS Scores (
+            `Id` INTEGER PRIMARY KEY AUTOINCREMENT,
+            `StudentId` VARCHAR(8) DEFAULT NULL,
+            `SubjectId` VARCHAR(10) DEFAULT NULL,
+            `FirstComponentScore` VARCHAR(5) DEFAULT NULL,
+            `SecondComponentScore` VARCHAR(5) DEFAULT NULL,
+            `ExamScore` VARCHAR(5) DEFAULT NULL,
+            `AvgScore` VARCHAR(5) DEFAULT NULL,
+            `AlphabetScore` VARCHAR(5) DEFAULT NULL
+        )
         """)
 
         cursor.execute("""
-        CREATE TABLE IF NOT EXISTS subjectInfo (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            subjectCode VARCHAR(30),
-            name VARCHAR(255),
-            noc INTEGER(5)
-        );
+            CREATE TABLE IF NOT EXISTS `Students` (
+                `Id` VARCHAR(12) PRIMARY KEY NOT NULL,
+                `Name` VARCHAR(40) DEFAULT NULL,
+                `Class` VARCHAR(7) DEFAULT NULL
+            )
         """)
 
         cursor.execute("""
-            CREATE TABLE IF NOT EXISTS studentInfo (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                studentCode VARCHAR(30),
-                fullName VARCHAR(255),
-                classCode VARCHAR(255)
-            );
+            CREATE TABLE IF NOT EXISTS `Subjects` (
+                `Id` VARCHAR(10) PRIMARY KEY NOT NULL,
+                `Name` VARCHAR(100) DEFAULT NULL,
+                `NumberOfCredits` VARCHAR(2) DEFAULT NULL
+            )
         """)
 
     def insert_into_db(self, data, subject_dict):
@@ -71,13 +69,13 @@ class DBImport:
 
         if subject_dict is not None:
             for subjectCode, subjectInfo in tqdm(subject_dict.items()):
-                cursor.execute("SELECT id FROM subjectInfo WHERE subjectCode=?", (subjectCode,))
+                cursor.execute("SELECT id FROM Subjects WHERE Id=?", (subjectCode,))
                 rows = cursor.fetchall()
 
                 if len(rows) >= 1:
                     continue
 
-                cursor.execute("INSERT INTO subjectInfo (subjectCode,noc) VALUES (?,?)",
+                cursor.execute("INSERT INTO Subjects (Id, NumberOfCredits) VALUES (?,?)",
                                (clean_text(subjectCode), clean_text(subjectInfo['noc'])))
 
         if data is not None:
@@ -85,33 +83,33 @@ class DBImport:
                 # studentsSubjectData = data[subjectCode]
 
                 for studentSubjectData in studentsSubjectData:
-                    cursor.execute("SELECT id FROM studentInfo WHERE studentCode=?",
+                    cursor.execute("SELECT id FROM Students WHERE Id=?",
                                    (student_code_format(studentSubjectData[0]),))
 
                     studentRows = cursor.fetchall()
 
                     if len(studentRows) < 1:
-                        cursor.execute("INSERT INTO studentInfo (studentCode, fullName, classCode) VALUES (?,?,?)",
+                        cursor.execute("INSERT INTO Students (Id, Name, Class) VALUES (?,?,?)",
                                        (student_code_format(studentSubjectData[0]),
                                         student_name_clean_text(studentSubjectData[1]),
                                         clean_text(studentSubjectData[2])))
 
-                    cursor.execute("SELECT id FROM studentScore WHERE studentCode=? AND subjectCode=?",
+                    cursor.execute("SELECT Id FROM Scores WHERE StudentId=? AND SubjectId=?",
                                    (student_code_format(studentSubjectData[0]), clean_text(subjectCode)))
 
                     rows = cursor.fetchall()
 
                     if len(rows) >= 1:
                         cursor.execute('''
-                        UPDATE studentScore 
+                        UPDATE Scores 
                         SET 
-                            TP1=?,
-                            TP2=?,
-                            THI=?,
-                            TONGKET=?,
-                            DIEMCHU=?
+                            FirstComponentScore=?,
+                            SecondComponentScore=?,
+                            ExamScore=?,
+                            AvgScore=?,
+                            AlphabetScore=?
                         WHERE
-                             studentCode=? AND subjectCode=?
+                             StudentId=? AND SubjectId=?
                         ''', (
                             clean_text(studentSubjectData[3]),
                             clean_text(studentSubjectData[4]),
@@ -124,14 +122,14 @@ class DBImport:
 
                     else:
                         cursor.execute('''
-                        INSERT INTO studentScore (
-                            studentCode,
-                            subjectCode, 
-                            TP1,
-                            TP2,
-                            THI,
-                            TONGKET,
-                            DIEMCHU) 
+                        INSERT INTO Scores (
+                            StudentId,
+                            SubjectId,
+                            FirstComponentScore,
+                            SecondComponentScore,
+                            ExamScore,
+                            AvgScore,
+                            AlphabetScore) 
                         VALUES (?,?,?,?,?,?,?);''', (
                             student_code_format(studentSubjectData[0]),
                             clean_text(subjectCode),
@@ -186,7 +184,7 @@ class DBImport:
 
         logging.info("Dump to {}".format(file_type))
 
-        df = pd.read_sql_query("SELECT * FROM studentScore", self.con)
+        df = pd.read_sql_query("SELECT * FROM Scores", self.con)
 
         df.drop(df.columns[0], axis=1, inplace=True)
 
