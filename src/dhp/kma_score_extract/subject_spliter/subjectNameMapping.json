@@ -802,5 +802,17 @@
     "subjectCode": "CTKH11",
     "name": "Phân tích, thiết kế hệ thống thông tin",
     "noc": 2
+  },
+  {
+    "id": 135,
+    "subjectCode": "DT1DVVT7",
+    "name": "Phát triển ứng dụng IoT",
+    "noc": 3
+  },
+  {
+    "id": 136,
+    "subjectCode": "DT1MMKH1",
+    "name": "Mật mã lý thuyết",
+    "noc": 2
   }
 ]
