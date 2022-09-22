@@ -814,5 +814,47 @@
     "subjectCode": "DT1MMKH1",
     "name": "Mật mã lý thuyết",
     "noc": 2
+  },
+  {
+    "id": 137,
+    "subjectCode": "DT1DVTT1",
+    "name": "Thực tập cơ sở 1",
+    "noc": 2
+  },
+  {
+    "id": 138,
+    "subjectCode": "CLC1ATATAT2",
+    "name": "An toàn mạng máy tính",
+    "noc": 2
+  },
+  {
+    "id": 139,
+    "subjectCode": "CT.HT10",
+    "name": "Chuyên đề cơ sở",
+    "noc": 2
+  },
+  {
+    "id": 140,
+    "subjectCode": "CLC1ATCTHT2",
+    "name": "Kiến trúc máy tính và hợp ngữ ",
+    "noc": 2
+  },
+  {
+    "id": 141,
+    "subjectCode": "LTCBNN2",
+    "name": "Tiếng Anh 2",
+    "noc": 2
+  },
+  {
+    "id": 142,
+    "subjectCode": "CTCTKM25",
+    "name": "Công nghệ phần mềm",
+    "noc": 2
+  },
+  {
+    "id": 143,
+    "subjectCode": "CTCBTT8",
+    "name": "Lý thuyết độ phức tạp tính toán",
+    "noc": 2
   }
 ]
