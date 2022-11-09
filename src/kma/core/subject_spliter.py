@@ -1,7 +1,6 @@
 import fitz
-import json
 from tqdm import tqdm
-import os
+from kma.utils.csv_reader import load_subject_mapping
 
 
 def subject_spliter(pdf_file):
@@ -17,9 +16,9 @@ def subject_spliter(pdf_file):
 
     global_subject_code = ""
 
+    subject_mapping = load_subject_mapping()
+
     with fitz.open(pdf_file) as pages:
-        with open(os.path.join(os.path.join('data'), 'subjectNameMapping.json'), encoding="utf-8") as f:
-            subject_mapping = json.loads(f.read())
 
         for i, page in enumerate(tqdm(pages)):
             page_content = page.get_text()
