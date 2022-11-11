@@ -8,15 +8,4 @@
     <orderEntry type="jdk" jdkName="Python 3.10 (src)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
-  <component name="PyNamespacePackagesService">
-    <option name="namespacePackageFolders">
-      <list>
-        <option value="$MODULE_DIR$/src/dhp" />
-        <option value="$MODULE_DIR$/src/dhp/kma_score_extract" />
-        <option value="$MODULE_DIR$/src/dhp/kma_score_extract/extract_table" />
-        <option value="$MODULE_DIR$/src/dhp/kma_score_extract/pdf_to_image" />
-        <option value="$MODULE_DIR$/src/dhp/kma_score_extract/subject_spliter" />
-      </list>
-    </option>
-  </component>
 </module>

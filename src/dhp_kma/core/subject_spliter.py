@@ -1,6 +1,6 @@
 import fitz
 from tqdm import tqdm
-from kma.utils.csv_reader import load_subject_mapping
+from dhp_kma.utils.csv_reader import load_subject_mapping
 
 
 def subject_spliter(pdf_file):

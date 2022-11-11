@@ -1,8 +1,6 @@
-import logging
-
+from loguru import logger
 import pandas as pd
 import pdfplumber
-
 from tqdm import tqdm
 
 
@@ -30,7 +28,7 @@ def extract_table(file, file_dict):
 
     all_subject_score = {}
 
-    logging.info("Extract file {}".format(file))
+    logger.info("Extract file {}".format(file))
 
     pdf_instance = pdfplumber.open(file)
 
@@ -41,9 +39,9 @@ def extract_table(file, file_dict):
             continue
 
         # Process table
-        table_df = pd.DataFrame(table)  # Kinda hack but whatever
+        table_df = pd.DataFrame(table)
 
-        if len(table_df.columns) < 10:
+        if len(table_df.columns) < 10:  # Kinda a hack but whatever. LOL and it still WORKS
             continue
 
         cols_needed = table_df.iloc[1:, [2, 3, 4, 5, 6, 7, 8, 9]]
