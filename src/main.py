@@ -3,28 +3,38 @@ from dhp_kma.db.sqlite_handle import Database
 import os
 from loguru import logger
 import sys
+from dhp_kma.utils.command_line import *
 
 if __name__ == "__main__":
-    PATH = "../sample"
-    DB_PATH = "../output/db.db"
+    args = create_command_line()
 
-    logger.remove()
-    logger.add(sys.stderr, level="INFO")
+    if args.type == "dump":
+        PATH = args.path
+        log_level = args.debug
 
-    obj = os.scandir(PATH)
+        logger.remove()
 
-    file_list = []
+        if log_level is True:
+            logger.add(sys.stderr, level="DEBUG")
+        else:
+            logger.add(sys.stderr, level="INFO")
 
-    for entry in obj:
-        if entry.is_file():
-            file_list.append(entry)
+        DB_PATH = os.path.join(os.path.abspath("src"), "..", "output/db.db")
 
-    logger.info("Found {file} files!", file=len(file_list))
+        obj = os.scandir(PATH)
 
-    db = Database(db_file_path=DB_PATH)
+        file_list = []
 
-    for file_name in file_list:
-        handler = KmaScoreCore(os.path.join(PATH, file_name))
-        subject_dict, file_score_data = handler.run()
+        for entry in obj:
+            if entry.is_file():
+                file_list.append(entry)
 
-        db.insert_into_db(file_score_data, subject_dict)
+        logger.info("Found {file} files!", file=len(file_list))
+
+        db = Database(db_file_path=DB_PATH)
+
+        for file_name in file_list:
+            handler = KmaScoreCore(os.path.join(os.path.abspath('src'), "..", file_name))
+            subject_dict, file_score_data = handler.run()
+
+            db.insert_into_db(file_score_data, subject_dict)
