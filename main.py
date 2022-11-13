@@ -1,9 +1,9 @@
 from dhp_kma.core import KmaScoreCore
 from dhp_kma.db.sqlite_handle import Database
 import os
-from loguru import logger
 import sys
 from dhp_kma.utils.command_line import *
+from dhp_kma.utils.sanity_check import *
 
 if __name__ == "__main__":
     args = create_command_line()
@@ -19,7 +19,12 @@ if __name__ == "__main__":
         else:
             logger.add(sys.stderr, level="INFO")
 
-        DB_PATH = os.path.join(os.path.abspath("src"), "..", "output/db.db")
+        sanity_check()
+
+        if args.db_path:
+            DB_PATH = args.db_path
+        else:
+            DB_PATH = os.path.join(os.path.abspath("."), "output/db.db")
 
         obj = os.scandir(PATH)
 
@@ -34,7 +39,7 @@ if __name__ == "__main__":
         db = Database(db_file_path=DB_PATH)
 
         for file_name in file_list:
-            handler = KmaScoreCore(os.path.join(os.path.abspath('src'), "..", file_name))
+            handler = KmaScoreCore(os.path.join(os.path.abspath("."), "sample", file_name))
             subject_dict, file_score_data = handler.run()
 
             db.insert_into_db(file_score_data, subject_dict)

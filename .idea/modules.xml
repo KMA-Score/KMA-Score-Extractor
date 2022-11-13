@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Azure_KMA_Score.iml" filepath="$PROJECT_DIR$/.idea/Azure_KMA_Score.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/KMA_Score_NextGen.iml" filepath="$PROJECT_DIR$/.idea/KMA_Score_NextGen.iml" />
     </modules>
   </component>
 </project>

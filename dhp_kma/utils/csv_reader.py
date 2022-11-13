@@ -16,7 +16,7 @@ def load_csv(path: str):
 
 
 def load_subject_mapping():
-    mapping_path = os.path.join(os.path.join('src'), 'data', 'subjectNameMapping.csv')
+    mapping_path = os.path.join(os.path.join("."), 'data', 'subjectNameMapping.csv')
 
     logger.info("Loading subject mapping into memory")
 

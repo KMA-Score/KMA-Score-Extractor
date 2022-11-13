@@ -19,7 +19,9 @@ class Database:
 
     def __reset_database(self):
         logger.info("Reset sqlite database")
-        os.remove(self.__db_path)
+
+        if os.path.exists(self.__db_path):
+            os.remove(self.__db_path)
 
     def __create_table_if_not_exist(self):
         logger.info("Creating table if not exist")

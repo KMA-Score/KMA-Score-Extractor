@@ -10,6 +10,7 @@ def create_command_line():
     dumper_parser = dumper.add_parser('dump')
     dumper_parser.add_argument('path', type=str, metavar='path')
     dumper_parser.add_argument('--debug', '-d', action='store_true')
+    dumper_parser.add_argument('--db-path', action='store')
 
     tool_parser = dumper.add_parser('tool')
     tool_parser.add_argument('path', type=str, metavar='path')
