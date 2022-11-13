@@ -1,9 +1,9 @@
 from cx_Freeze import Executable, setup
 
-executables = [Executable("main.py", target_name="test_bcrypt")]
+executables = [Executable("main.py", target_name="kma_score_dumper")]
 
 options = {
-    "build_exe": {
+    "build": {
         "excludes": [],
         "zip_include_packages": ["*"],
         "zip_exclude_packages": [],
@@ -12,13 +12,14 @@ options = {
 }
 
 setup(
-    name="test_bcrypt",
-    version="0.1",
-    description="cx_Freeze script to test bcrypt",
+    name="kma_score_dumper",
+    version="1.0",
+    description="KMA Score Dumper",
     executables=executables,
     options=options,
     packages=[],
-    author="Marcelo Duarte",
-    author_email="marcelotduarte@users.noreply.github.com",
-    url="https://github.com/marcelotduarte/cx_Freeze/",
+    author="Dang Hoang Phuc",
+    author_email="13364457+phuchptty@users.noreply.github.com",
+    url="https://github.com/KMA-Score/KMA-Score-Extractor",
+    copyright="2022 Dang Hoang Phuc"
 )
