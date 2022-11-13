@@ -18,4 +18,4 @@ def create_command_line():
 
     args = parser.parse_args()
 
-    return args
+    return args, parser

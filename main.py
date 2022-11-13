@@ -6,7 +6,11 @@ from dhp_kma.utils.command_line import *
 from dhp_kma.utils.sanity_check import *
 
 if __name__ == "__main__":
-    args = create_command_line()
+    args, parser = create_command_line()
+
+    if args.type is None:
+        parser.print_help()
+        exit(0)
 
     if args.type == "dump":
         PATH = args.path
