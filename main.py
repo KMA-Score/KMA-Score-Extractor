@@ -4,6 +4,7 @@ from dhp_kma.core import KmaScoreCore
 from dhp_kma.export_engine.csv_engine import CsvEngine
 from dhp_kma.utils.command_line import *
 from dhp_kma.utils.sanity_check import *
+from dhp_kma.utils.time_utils import *
 
 if __name__ == "__main__":
     args, parser = create_command_line()
@@ -27,7 +28,7 @@ if __name__ == "__main__":
         if args.output_path:
             OUTPUT_PATH = args.output_path
         else:
-            OUTPUT_PATH = os.path.join(os.path.abspath("."), "output/output.csv")
+            OUTPUT_PATH = os.path.join(os.path.abspath("."), "output/output-score-{}.csv".format(get_timestamp()))
 
         obj = os.scandir(PATH)
 
