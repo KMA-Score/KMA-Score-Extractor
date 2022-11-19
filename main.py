@@ -1,7 +1,7 @@
-from dhp_kma.core import KmaScoreCore
-from dhp_kma.db.sqlite_handle import Database
-import os
 import sys
+
+from dhp_kma.core import KmaScoreCore
+from dhp_kma.export_engine.csv_engine import CsvEngine
 from dhp_kma.utils.command_line import *
 from dhp_kma.utils.sanity_check import *
 
@@ -10,7 +10,6 @@ if __name__ == "__main__":
 
     if args.type is None:
         parser.print_help()
-        exit(0)
 
     if args.type == "dump":
         PATH = args.path
@@ -25,10 +24,10 @@ if __name__ == "__main__":
 
         sanity_check()
 
-        if args.db_path:
-            DB_PATH = args.db_path
+        if args.output_path:
+            OUTPUT_PATH = args.output_path
         else:
-            DB_PATH = os.path.join(os.path.abspath("."), "output/db.db")
+            OUTPUT_PATH = os.path.join(os.path.abspath("."), "output/output.csv")
 
         obj = os.scandir(PATH)
 
@@ -40,10 +39,12 @@ if __name__ == "__main__":
 
         logger.info("Found {file} files!", file=len(file_list))
 
-        db = Database(db_file_path=DB_PATH)
+        export_engine = CsvEngine(file_path=OUTPUT_PATH)
 
         for file_name in file_list:
             handler = KmaScoreCore(os.path.join(os.path.abspath("."), "sample", file_name))
             subject_dict, file_score_data = handler.run()
 
-            db.insert_into_db(file_score_data, subject_dict)
+            export_engine.run_score(file_score_data)
+
+        export_engine.close_file()
