@@ -19,9 +19,20 @@ def create_command_line():
     csv2json_parser.add_argument('input_path', type=str, metavar='input_path', help="CSV input path")
     csv2json_parser.add_argument('output_path', type=str, metavar='output_path', help="JSON output path")
 
-    sql_gen_parser = tool_sub_parser.add_parser('sqlGenerate', help="Generate SQL command from csv", aliases=["sqlgen"])
-    sql_gen_parser.add_argument('input_path', type=str, metavar='input_path', help="CSV input path")
-    sql_gen_parser.add_argument('output_path', type=str, metavar='output_path', help="SQL output path")
+    sql_gen_student_parser = tool_sub_parser.add_parser('sqlGenerateStudent', help="Generate SQL command from csv",
+                                                        aliases=["sqlgenstu"])
+    sql_gen_student_parser.add_argument('input_path', type=str, metavar='input_path', help="CSV input path")
+    sql_gen_student_parser.add_argument('output_path', type=str, metavar='output_path', help="SQL output path")
+
+    sql_gen_score_parser = tool_sub_parser.add_parser('sqlGenerateScore', help="Generate SQL command from csv",
+                                                        aliases=["sqlgensco"])
+    sql_gen_score_parser.add_argument('input_path', type=str, metavar='input_path', help="CSV input path")
+    sql_gen_score_parser.add_argument('output_path', type=str, metavar='output_path', help="SQL output path")
+
+    sql_gen_subject_parser = tool_sub_parser.add_parser('sqlGenerateSubject', help="Generate SQL command from csv",
+                                                        aliases=["sqlgensub"])
+    sql_gen_subject_parser.add_argument('input_path', type=str, metavar='input_path', help="CSV input path")
+    sql_gen_subject_parser.add_argument('output_path', type=str, metavar='output_path', help="SQL output path")
 
     args = parser.parse_args()
 

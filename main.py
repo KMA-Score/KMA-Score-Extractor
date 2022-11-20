@@ -5,7 +5,7 @@ import os
 from dhp_kma.core import KmaScoreCore
 from dhp_kma.export_engine.csv_engine import CsvEngine
 from dhp_kma.export_engine.json_engine import csv_to_json
-from dhp_kma.export_engine.sql_engine import generate_sql
+from dhp_kma.export_engine.sql_engine import *
 from dhp_kma.utils.command_line import create_command_line
 from dhp_kma.utils.sanity_check import sanity_check
 
@@ -62,5 +62,9 @@ if __name__ == "__main__":
     elif args.type == "tool":
         if args.tool_type == "c2j" or args.tool_type == "csv2json":
             csv_to_json(args.input_path, args.output_path)
-        elif args.tool_type == "sqlGenerate" or args.tool_type == "sqlgen":
-            generate_sql(args.input_path, args.output_path)
+        elif args.tool_type == "sqlGenerateScore" or args.tool_type == "sqlgensco":
+            generate_sql_score(args.input_path, args.output_path)
+        elif args.tool_type == "sqlGenerateStudent" or args.tool_type == "sqlgenstu":
+            generate_sql_student(args.input_path, args.output_path)
+        elif args.tool_type == "sqlGenerateSubject" or args.tool_type == "sqlgensub":
+            generate_sql_subject(args.input_path, args.output_path)

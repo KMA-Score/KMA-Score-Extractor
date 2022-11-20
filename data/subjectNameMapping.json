@@ -856,5 +856,11 @@
     "subjectCode": "CTCBTT8",
     "name": "Lý thuyết độ phức tạp tính toán",
     "noc": 2
+  },
+  {
+    "id": 144,
+    "subjectCode": "CTCTHT9",
+    "name": "Thiết kế hệ thống nhúng",
+    "noc": 3
   }
 ]
