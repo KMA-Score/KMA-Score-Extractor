@@ -1,6 +1,6 @@
 import csv
-import os
 from loguru import logger
+from dhp_kma.utils.string import find_data_file
 
 
 def load_csv(path: str):
@@ -16,7 +16,7 @@ def load_csv(path: str):
 
 
 def load_subject_mapping():
-    mapping_path = os.path.join(os.path.join("."), 'data', 'subjectNameMapping.csv')
+    mapping_path = find_data_file("subjectNameMapping.csv")
 
     logger.info("Loading subject mapping into memory")
 

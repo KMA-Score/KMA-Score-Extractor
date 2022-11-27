@@ -11,7 +11,7 @@ from dhp_kma.utils.sanity_check import sanity_check
 
 
 def dump_opt():
-    PATH = args.path
+    PATH = os.path.abspath(args.path)
     log_level = args.debug
 
     logger.remove()
@@ -41,7 +41,7 @@ def dump_opt():
     export_engine = CsvEngine(folder_path=OUTPUT_FOLDER_PATH)
 
     for file_name in file_list:
-        handler = KmaScoreCore(os.path.join(os.path.abspath("."), "sample", file_name))
+        handler = KmaScoreCore(os.path.abspath(os.path.join(PATH, file_name)))
         subject_dict, file_score_data = handler.run()
 
         export_engine.run_score(file_score_data)

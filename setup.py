@@ -1,22 +1,28 @@
 from cx_Freeze import Executable, setup
 import datetime
 
-executables = [Executable("main.py", target_name="kma_score_dumper", copyright="{} Dang Hoang Phuc".format(datetime.date.today().year))]
+executables = [Executable("main.py", target_name="kma_score_dumper",
+                          copyright="{} Dang Hoang Phuc".format(datetime.date.today().year))]
+
+include_files = ["data/baseStructure.sql", "data/subjectNameMapping.csv"]
 
 options = {
     "build_exe": {
         "excludes": [],
         "zip_include_packages": ["*"],
         "zip_exclude_packages": [],
-        "packages": ["fitz", "tqdm", "pdfplumber", "pandas", "loguru", "numpy", "charset_normalizer"]
+        "packages": ["fitz", "tqdm", "pdfplumber", "pandas", "loguru", "numpy", "charset_normalizer"],
+        "include_files": include_files
     },
     "bdist_rpm": {
         "zip_include_packages": ["*"],
-        "packages": ["fitz", "tqdm", "pdfplumber", "pandas", "loguru", "numpy", "charset_normalizer"]
+        "packages": ["fitz", "tqdm", "pdfplumber", "pandas", "loguru", "numpy", "charset_normalizer"],
+        "include_files": include_files
     },
     "bdist_mac": {
         "zip_include_packages": ["*"],
-        "packages": ["fitz", "tqdm", "pdfplumber", "pandas", "loguru", "numpy", "charset_normalizer"]
+        "packages": ["fitz", "tqdm", "pdfplumber", "pandas", "loguru", "numpy", "charset_normalizer"],
+        "include_files": include_files
     }
 }
 

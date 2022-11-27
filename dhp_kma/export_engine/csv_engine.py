@@ -17,6 +17,7 @@ class CsvEngine:
 
         # tf who need this when output is unique
         # self.__reset_csv()
+        self.__check_missing_output_dir(folder_path)
 
         # Score engine
         logger.info("Init Score CSV Engine ...")
@@ -38,6 +39,10 @@ class CsvEngine:
         self.__student_writer = csv.DictWriter(self.__student_file, fieldnames=student_header_field)
 
         self.__create_default_header()
+
+    def __check_missing_output_dir(self, folder_path):
+        if not os.path.exists(folder_path):
+            os.mkdir(folder_path)
 
     def __reset_csv(self):
         logger.info("Reset CSV...")
