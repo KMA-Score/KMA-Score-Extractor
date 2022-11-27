@@ -1,10 +1,14 @@
 from cx_Freeze import Executable, setup
 import datetime
+import os
 
 executables = [Executable("main.py", target_name="kma_score_dumper",
                           copyright="{} Dang Hoang Phuc".format(datetime.date.today().year))]
 
-include_files = ["data/baseStructure.sql", "data/subjectNameMapping.csv"]
+include_files = [
+    os.path.abspath(os.path.join("data", "baseStructure.sql")),
+    os.path.abspath(os.path.join("data", "subjectNameMapping.csv"))
+]
 
 options = {
     "build_exe": {
@@ -15,9 +19,8 @@ options = {
         "include_files": include_files
     },
     "bdist_rpm": {
-        "zip_include_packages": ["*"],
-        "packages": ["fitz", "tqdm", "pdfplumber", "pandas", "loguru", "numpy", "charset_normalizer"],
-        "include_files": include_files
+        # "packages": ["fitz", "tqdm", "pdfplumber", "pandas", "loguru", "numpy", "charset_normalizer"],
+        # "include_files": include_files
     },
     "bdist_mac": {
         "zip_include_packages": ["*"],
