@@ -134,7 +134,7 @@
   {
     "id": 23,
     "subjectCode": "ATATTM3",
-    "name": "Giao thức an toàn mạng",
+    "name": "Giao thức an toàn mạng",
     "noc": 2
   },
   {
@@ -867,6 +867,12 @@
     "id": 145,
     "subjectCode": "ATATAM3",
     "name": "Giao thức an toàn mạng",
+    "noc": 2
+  },
+  {
+    "id": 146,
+    "subjectCode": "ATATTM2",
+    "name": "Giao thức an toàn mạng",
     "noc": 2
   }
 ]
