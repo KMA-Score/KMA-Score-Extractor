@@ -26,4 +26,4 @@ CREATE TABLE `Scores` (
   KEY `SubjectId` (`SubjectId`),
   CONSTRAINT `Scores_ibfk_1` FOREIGN KEY (`StudentId`) REFERENCES `Students` (`Id`),
   CONSTRAINT `Scores_ibfk_2` FOREIGN KEY (`SubjectId`) REFERENCES `Subjects` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
