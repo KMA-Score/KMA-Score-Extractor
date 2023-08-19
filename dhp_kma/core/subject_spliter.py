@@ -30,6 +30,7 @@ def subject_spliter(pdf_file):
 
             student_code_line = ""
             subject_noc = ""
+            subject_name = ""
 
             for pcl_index, x in enumerate(page_content_line):
                 if x.__contains__('Mã học phần'):
@@ -37,6 +38,10 @@ def subject_spliter(pdf_file):
 
                 if x.__contains__('Số TC:'):
                     subject_noc = page_content_line[pcl_index + 1]
+
+                if x.__contains__('Tên'):
+                    # hack: Subject name always before one row with "Tên"
+                    subject_name = page_content_line[pcl_index - 1]
 
             if not student_code_line:
                 if not global_subject_code:  # Prevent cover and not score page
@@ -47,18 +52,20 @@ def subject_spliter(pdf_file):
                 subject_code = student_code_line.split(":")[1].strip()
                 global_subject_code = subject_code
 
-            if subject_code not in subject_dict.keys():
-                subject_data = next((item for item in subject_mapping if item["subjectCode"] == subject_code), None)
+            # in case subject name null check in subject_dict
+            if not subject_name:
+                if subject_code not in subject_dict.keys():
+                    subject_data = next((item for item in subject_mapping if item["subjectCode"] == subject_code), None)
 
-                if subject_data is not None:
-                    subject_name = subject_data.get('name', 'NULL')
-                else:
-                    subject_name = "NULL"
+                    if subject_data is not None:
+                        subject_name = subject_data.get('name', 'NULL')
+                    else:
+                        subject_name = "NULL"
 
-                subject_dict[subject_code] = {
-                    'noc': subject_noc,
-                    'name': subject_name
-                }
+            subject_dict[subject_code] = {
+                'noc': subject_noc,
+                'name': subject_name
+            }
 
             if subject_code not in file_dict.keys():
                 file_dict[subject_code] = [i]

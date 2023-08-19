@@ -15,6 +15,8 @@ class KmaScoreCore:
         # Load subject - page mapping
         subject_name_page_mapping, subject_dict = subject_spliter(self.file_path)
 
+        print(subject_dict)
+
         logger.info("Found {length_file_dict} subjects!", length_file_dict=len(subject_name_page_mapping))
         logger.debug(subject_name_page_mapping)
 

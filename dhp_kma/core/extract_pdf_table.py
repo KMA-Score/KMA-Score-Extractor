@@ -3,7 +3,6 @@ import pandas as pd
 import pdfplumber
 from tqdm import tqdm
 
-
 def _find_keys(file_dict, page):
     keys = list(file_dict.keys())
     values = list(file_dict.values())
