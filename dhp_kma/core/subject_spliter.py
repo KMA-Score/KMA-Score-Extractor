@@ -43,6 +43,9 @@ def subject_spliter(pdf_file):
                     # hack: Subject name always before one row with "Tên"
                     subject_name = page_content_line[pcl_index - 1]
 
+                    if subject_name.__contains__('Ghi chú'):
+                        subject_name = page_content_line[pcl_index + 1]  # another hack because sometime it 2 step from hell
+
             if not student_code_line:
                 if not global_subject_code:  # Prevent cover and not score page
                     continue
