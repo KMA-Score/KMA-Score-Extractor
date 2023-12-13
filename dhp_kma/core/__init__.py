@@ -17,6 +17,7 @@ class KmaScoreCore:
 
         logger.info("Found {length_file_dict} subjects!", length_file_dict=len(subject_name_page_mapping))
         logger.debug(subject_name_page_mapping)
+        logger.debug(subject_dict)
 
         # Start extract page
         file_score_data = extract_table(self.file_path, subject_name_page_mapping)

@@ -1,157 +1,158 @@
-id,subjectCode,name,noc
-1,ATQGTC1,Giáo dục thể chất 1,1
-2,ATCTHT1,Tin học đại cương,2
-3,ATCBTT7,Toán cao cấp A1,3
-4,ATCBTT3,Toán cao cấp A3,3
-5,AT1LLLM1,Triết học Mác - Lênin,3
-6,ATCTHT3,Lập trình căn bản,3
-7,AT1LLLM3,Chủ nghĩa xã hội khoa học,2
-8,ATQGTC2,Giáo dục thể chất 2,1
-9,AT1LLLM2,Kinh tế chính trị Mác - Lênin,2
-10,ATLLDL2,Kỹ năng mềm,2
-11,ATCBTT2,Toán cao cấp A2,3
-12,ATCBLH1,Vật lý đại cương A1,3
-13,CTCBTT7,Phương pháp tính,2
-14,ATCBTT8,Toán xác suất thống kê,2
-15,ATCBLH2,Vật lý đại cương A2,3
-16,ATCBNN1,Tiếng Anh 1,3
-17,ATCTHT11,Công nghệ mạng máy tính (Mạng máy tính),3
-18,ATQGTC3,Giáo dục thể chất 3,1
-19,ATLLLM3,Tâm lý học đại cương (môn thay thế),2
-20,ATCBTT5,Toán chuyên đề,2
-21,ATLLTH1,Tư tưởng Hồ Chí Minh,2
-22,ATATAT2,An toàn mạng máy tính,4
-23,ATATTM3,Giao thức an toàn mạng,2
-24,ATATKH3,Kỹ thuật giấu tin,2
-25,ATCTHT2,Kiến trúc máy tính,2
-26,ATCTKM8,Phân tích thiết kế hệ thống,2
-27,ATCBNN7,Tiếng Anh chuyên ngành (ATTT),4
-28,AT1LLDL1,Lịch sử Đảng cộng sản Việt Nam,2
-29,ATCBTT6,Toán rời rạc,2
-30,CTCTHT18,Lập trình driver,4
-31,CTCTHT17,Lập trình nhân Linux,4
-32,CTCBNN7,Tiếng Anh chuyên ngành (CNTT),4
-33,ATCTHT8,Otomat và ngôn ngữ hình thức,2
-34,DT1DVVT7,Phát triển ứng dụng IoT,3
-35,DT1DVDM7,Thiết kế hệ thống nhúng,3
-36,DT1CBNN7,Tiếng Anh chuyên ngành,4
-37,DT1DVDM3,Thiết kế hệ thống số,3
-38,DT1DVKD1,Linh kiện điện tử,3
-39,DT1DVKD4,Tín hiệu và hệ thống,2
-40,ATATAT4,Đánh giá & kiểm định AT hệ TTT,3
-41,ATATAT3,"Phân tích, thiết kế an toàn mạng máy tính",2
-42,ATATTM4,Thu thập và phân tích TT AN mạng,3
-43,ATCTKM6,Lập trình mạng,2
-44,ATCTKM7,Phát triển ứng dụng web,2
-45,ATCTHT7,Nguyên lý hệ điều hành,2
-46,ATDVDV4,Hệ thống viễn thông,3
-47,ATDVKV3,Xử lý tín hiệu số,2
-48,ATDVDV3,Kỹ thuật đo lường điện tử,2
-49,ATDVDV2,Kỹ thuật truyền số liệu,2
-50,ATATPM2,Thuật toán trong an toàn thông tin,2
-51,ATCTKM2,Lý thuyết cơ sở dữ liệu,2
-52,ATCTHT12,Quản trị mạng máy tính,2
-53,ATCBNN2,Tiếng Anh 2,3
-54,CTCTKM14,Phát triển phần mềm trong thẻ thông minh,3
-55,CTCTKM10,Lập trình Android cơ bản (có thể thay thế),3
-56,CTCTHT22,Lập trình hệ thống nhúng Linux (có thể thay thế),3
-57,CTDVDV3,Hệ thống thông tin di động,2
-58,CTCTKM4,Chương trình dịch,2
-59,ATDVKD5,Điện tử tương tự và điện tử số,3
-60,ATQGTC4,Giáo dục thể chất 4,1
-61,DT1MMKH1,Mật mã lý thuyết,2
-62,DT1DVKD5,Điện tử tương tự,3
-63,DT1DVKD2,Lý thuyết mạch,2
-64,DT1DVKV1,Điện tử số,3
-65,ATLLDL1,Đường lối cách mạng của Đảng CSVN,3
-66,ATLLLM2,Những NLCB của CNMLN (HP2),3
-67,ATCTHT5,Bộ giao thức TCP/IP và định tuyến mạng,3
-68,ATCTKM4,Kỹ thuật lập trình,2
-69,ATATTM5,Chứng thực điện tử,3
-70,ATATAP2,Mã độc,3
-71,ATATAP4,Phát hiện lỗi và lỗ hổng bảo mật phần mềm,2
-72,ATATTM6,Phòng chống và điều tra tội phạm máy tính,2
-73,ATATAP1,Xây dựng ứng dụng web an toàn,2
-74,ATATAT1,An toàn hệ điều hành,3
-75,ATATKH5,Quản lý và xây dựng chính sách ATTT,2
-76,ATCTKM10,Phát triển phần mềm ứng dụng (môn thay thế),2
-77,ATCTHT10,Thực tập cơ sở chuyên ngành,3
-78,ATATTM2,An toàn cơ sở dữ liệu,2
-79,ATCTKM5,Lập trình hướng đối tượng,2
-80,ATCBNN6,Tiếng Anh 3,4
-81,ATLLLM6,Pháp luật Việt Nam đại cương,2
-82,CTCTHT31,An toàn và bảo mật trong phát triển PM di động,3
-83,CTCTKM20,Phát triển game trên Android (có thể thay thế),3
-84,CTCTHT28,Thị giác máy tính trên nền nhúng (có thể thay thế),3
-85,CTCTKM16,Tối ưu phần mềm nhúng,3
-86,CTCTHT13,Cơ sở an toàn và bảo mật thông tin,3
-87,CTCTHT12,Kiểm thử phần mềm nhúng,2
-88,CTCTKM9,Quản trị dự án phần mềm,2
-89,CTCTHT16,Thực tập cơ sở chuyên ngành,3
-90,ATQGTC5,Giáo dục thể chất 5,1
-91,ATCBLH3,Thực hành vật lý đại cương 1&2,2
-92,DT1DVDA2,Đồ án 2,2
-93,DT1DVDM6,Hệ thống nhúng,3
-94,DT1DVVT5,Hệ thống viễn thông,2
-95,DT1DVTT2,Thực tập cơ sở 2,2
-96,DT1DVDT3,Thông tin số,2
-97,DT1DVKD3,Kỹ thuật điện,2
-98,CTCTHT19,Lập trình ARM cơ bản (có thể thay thế),3
-99,DT1DVDT12,Thiết kế PLC,3
-100,DT1DVDM8,An toàn hệ thống nhúng,3
-101,DT1DVDM9,Mạng các hệ thống nhúng,3
-102,DT1DVTT3,Thực tập cơ sở 3,2
-103,DT1DVDA3,Đồ án 3,2
-104,DT1DVDT10,Kỹ thuật cảm biến,2
-105,DT1DVDA1,Đồ án 1,2
-106,DT1DVDT9,Điện tử công nghiệp,2
-107,DT1DVKD6,Điện tử công suất,2
-108,ATLLLM1,Những NLCB của CNMLN (HP1),2
-109,ATATAT6,An toàn điện toán đám mây,2
-110,ATATTM7,An toàn internet & TM điện tử,2
-111,ATATAT5,Quản trị an toàn hệ thống,4
-112,ATATAP3,Kỹ thuật lập trình an toàn,3
-113,ATATKH4,Mật mã ứng dụng trong an toàn thông tin,3
-114,ATATKH2,Cơ sở lý thuyết mật mã,3
-115,ATATKH1,Cơ sở an toàn thông tin,3
-116,AT.KH1,Nhập môn mật mã học,3
-117,ATCTKM1,Cấu trúc dữ liệu và giải thuật,2
-118,ATCTKM3,Hệ quản trị cơ sở dữ liệu,2
-119,ATDVDV1,Cơ sở lý thuyết truyền tin,2
-120,CTCTKM17,Lập trình Android nâng cao (có thể thay thế),3
-121,CTCTHT32,Tối ưu phần mềm di động,3
-122,CTCTHT25,Lập trình ARM nâng cao (có thể thay thế),3
-123,CTCTKM15,An toàn và bảo mật trong hệ thống nhúng,3
-124,CTCTHT10,Công nghệ phần mềm nhúng,2
-125,CTCTHT15,Lập trình hợp ngữ,3
-126,CTCTHT14,Linux và phần mềm nguồn mở,2
-127,CTCTHT11,Hệ điều hành nhúng thời gian thực,3
-128,ATDVKV2,Kỹ thuật vi xử lý,2
-129,DT1DVVT6,Cơ sở thiết kế VLSI,3
-130,DT1DVDM4,Thiết bị ngoại vi và kỹ thuật ghép nối,2
-131,DT1DVDM5,Xử lý tín hiệu số,3
-132,DT1DVDT8,Cơ sở điều khiển tự động,2
-133,DT1DVDM2,Kỹ thuật vi xử lý,3
-134,CTKH11,"Phân tích, thiết kế hệ thống thông tin",2
-135,DT1DVVT7,Phát triển ứng dụng IoT,3
-136,DT1MMKH1,Mật mã lý thuyết,2
-137,DT1DVTT1,Thực tập cơ sở 1,2
-138,CLC1ATATAT2,An toàn mạng máy tính,2
-139,CT.HT10,Chuyên đề cơ sở,2
-140,CLC1ATCTHT2,Kiến trúc máy tính và hợp ngữ ,2
-141,LTCBNN2,Tiếng Anh 2,2
-142,CTCTKM25,Công nghệ phần mềm,2
-143,CTCBTT8,Lý thuyết độ phức tạp tính toán,2
-144,CTCTHT9,Thiết kế hệ thống nhúng,3
-145,ATATAM3,Giao thức an toàn mạng,2
-146,ATATAM4,An toàn mạng không dây và di động,2
-147,ATATTT1,Chuyên đề An toàn hệ thống thông tin,2
-148,ATATTT3,Chuyên đề Công nghệ phần mềm an toàn,2
-149,ATATTT2,Chuyên đề Kỹ nghệ an toàn mạng,2
-150,ATATKH10,Công nghệ phần mềm,3
-151,ATATPM3,Công nghệ web an toàn,3
-152,ATATAM6,Quản trị an toàn hệ thống,3
-153,ATATAM9,Tấn công và phòng thủ hệ thống,3
-154,ATATKH7,Thiết kế giao diện người dùng,2
-155,CTCTKM12,Phát triển phần mềm ứng dụng,2
-156,ATCTHT9,Các dịch vụ mạng - Học lại,2
+subjectCode,name,noc
+ATQGTC1,Giáo dục thể chất 1,1
+ATCTHT1,Tin học đại cương,2
+ATCBTT7,Toán cao cấp A1,3
+ATCBTT3,Toán cao cấp A3,3
+AT1LLLM1,Triết học Mác - Lênin,3
+ATCTHT3,Lập trình căn bản,3
+AT1LLLM3,Chủ nghĩa xã hội khoa học,2
+ATQGTC2,Giáo dục thể chất 2,1
+AT1LLLM2,Kinh tế chính trị Mác - Lênin,2
+ATLLDL2,Kỹ năng mềm,2
+ATCBTT2,Toán cao cấp A2,3
+ATCBLH1,Vật lý đại cương A1,3
+CTCBTT7,Phương pháp tính,2
+ATCBTT8,Toán xác suất thống kê,2
+ATCBLH2,Vật lý đại cương A2,3
+ATCBNN1,Tiếng Anh 1,3
+ATCTHT11,Công nghệ mạng máy tính (Mạng máy tính),3
+ATQGTC3,Giáo dục thể chất 3,1
+ATLLLM3,Tâm lý học đại cương (môn thay thế),2
+ATCBTT5,Toán chuyên đề,2
+ATLLTH1,Tư tưởng Hồ Chí Minh,2
+ATATAT2,An toàn mạng máy tính,4
+ATATTM3,Giao thức an toàn mạng,2
+ATATKH3,Kỹ thuật giấu tin,2
+ATCTHT2,Kiến trúc máy tính,2
+ATCTKM8,Phân tích thiết kế hệ thống,2
+ATCBNN7,Tiếng Anh chuyên ngành (ATTT),4
+AT1LLDL1,Lịch sử Đảng cộng sản Việt Nam,2
+ATCBTT6,Toán rời rạc,2
+CTCTHT18,Lập trình driver,4
+CTCTHT17,Lập trình nhân Linux,4
+CTCBNN7,Tiếng Anh chuyên ngành (CNTT),4
+ATCTHT8,Otomat và ngôn ngữ hình thức,2
+DT1DVVT7,Phát triển ứng dụng IoT,3
+DT1DVDM7,Thiết kế hệ thống nhúng,3
+DT1CBNN7,Tiếng Anh chuyên ngành,4
+DT1DVDM3,Thiết kế hệ thống số,3
+DT1DVKD1,Linh kiện điện tử,3
+DT1DVKD4,Tín hiệu và hệ thống,2
+ATATAT4,Đánh giá & kiểm định AT hệ TTT,3
+ATATAT3,"Phân tích, thiết kế an toàn mạng máy tính",2
+ATATTM4,Thu thập và phân tích TT AN mạng,3
+ATCTKM6,Lập trình mạng,2
+ATCTKM7,Phát triển ứng dụng web,2
+ATCTHT7,Nguyên lý hệ điều hành,2
+ATDVDV4,Hệ thống viễn thông,3
+ATDVKV3,Xử lý tín hiệu số,2
+ATDVDV3,Kỹ thuật đo lường điện tử,2
+ATDVDV2,Kỹ thuật truyền số liệu,2
+ATATPM2,Thuật toán trong an toàn thông tin,2
+ATCTKM2,Lý thuyết cơ sở dữ liệu,2
+ATCTHT12,Quản trị mạng máy tính,2
+ATCBNN2,Tiếng Anh 2,3
+CTCTKM14,Phát triển phần mềm trong thẻ thông minh,3
+CTCTKM10,Lập trình Android cơ bản (có thể thay thế),3
+CTCTHT22,Lập trình hệ thống nhúng Linux (có thể thay thế),3
+CTDVDV3,Hệ thống thông tin di động,2
+CTCTKM4,Chương trình dịch,2
+ATDVKD5,Điện tử tương tự và điện tử số,3
+ATQGTC4,Giáo dục thể chất 4,1
+DT1MMKH1,Mật mã lý thuyết,2
+DT1DVKD5,Điện tử tương tự,3
+DT1DVKD2,Lý thuyết mạch,2
+DT1DVKV1,Điện tử số,3
+ATLLDL1,Đường lối cách mạng của Đảng CSVN,3
+ATLLLM2,Những NLCB của CNMLN (HP2),3
+ATCTHT5,Bộ giao thức TCP/IP và định tuyến mạng,3
+ATCTKM4,Kỹ thuật lập trình,2
+ATATTM5,Chứng thực điện tử,3
+ATATAP2,Mã độc,3
+ATATAP4,Phát hiện lỗi và lỗ hổng bảo mật phần mềm,2
+ATATTM6,Phòng chống và điều tra tội phạm máy tính,2
+ATATAP1,Xây dựng ứng dụng web an toàn,2
+ATATAT1,An toàn hệ điều hành,3
+ATATKH5,Quản lý và xây dựng chính sách ATTT,2
+ATCTKM10,Phát triển phần mềm ứng dụng (môn thay thế),2
+ATCTHT10,Thực tập cơ sở chuyên ngành,3
+ATATTM2,An toàn cơ sở dữ liệu,2
+ATCTKM5,Lập trình hướng đối tượng,2
+ATCBNN6,Tiếng Anh 3,4
+ATLLLM6,Pháp luật Việt Nam đại cương,2
+CTCTHT31,An toàn và bảo mật trong phát triển PM di động,3
+CTCTKM20,Phát triển game trên Android (có thể thay thế),3
+CTCTHT28,Thị giác máy tính trên nền nhúng (có thể thay thế),3
+CTCTKM16,Tối ưu phần mềm nhúng,3
+CTCTHT13,Cơ sở an toàn và bảo mật thông tin,3
+CTCTHT12,Kiểm thử phần mềm nhúng,2
+CTCTKM9,Quản trị dự án phần mềm,2
+CTCTHT16,Thực tập cơ sở chuyên ngành,3
+ATQGTC5,Giáo dục thể chất 5,1
+ATCBLH3,Thực hành vật lý đại cương 1&2,2
+DT1DVDA2,Đồ án 2,2
+DT1DVDM6,Hệ thống nhúng,3
+DT1DVVT5,Hệ thống viễn thông,2
+DT1DVTT2,Thực tập cơ sở 2,2
+DT1DVDT3,Thông tin số,2
+DT1DVKD3,Kỹ thuật điện,2
+CTCTHT19,Lập trình ARM cơ bản (có thể thay thế),3
+DT1DVDT12,Thiết kế PLC,3
+DT1DVDM8,An toàn hệ thống nhúng,3
+DT1DVDM9,Mạng các hệ thống nhúng,3
+DT1DVTT3,Thực tập cơ sở 3,2
+DT1DVDA3,Đồ án 3,2
+DT1DVDT10,Kỹ thuật cảm biến,2
+DT1DVDA1,Đồ án 1,2
+DT1DVDT9,Điện tử công nghiệp,2
+DT1DVKD6,Điện tử công suất,2
+ATLLLM1,Những NLCB của CNMLN (HP1),2
+ATATAT6,An toàn điện toán đám mây,2
+ATATTM7,An toàn internet & TM điện tử,2
+ATATAT5,Quản trị an toàn hệ thống,4
+ATATAP3,Kỹ thuật lập trình an toàn,3
+ATATKH4,Mật mã ứng dụng trong an toàn thông tin,3
+ATATKH2,Cơ sở lý thuyết mật mã,3
+ATATKH1,Cơ sở an toàn thông tin,3
+AT.KH1,Nhập môn mật mã học,3
+ATCTKM1,Cấu trúc dữ liệu và giải thuật,2
+ATCTKM3,Hệ quản trị cơ sở dữ liệu,2
+ATDVDV1,Cơ sở lý thuyết truyền tin,2
+CTCTKM17,Lập trình Android nâng cao (có thể thay thế),3
+CTCTHT32,Tối ưu phần mềm di động,3
+CTCTHT25,Lập trình ARM nâng cao (có thể thay thế),3
+CTCTKM15,An toàn và bảo mật trong hệ thống nhúng,3
+CTCTHT10,Công nghệ phần mềm nhúng,2
+CTCTHT15,Lập trình hợp ngữ,3
+CTCTHT14,Linux và phần mềm nguồn mở,2
+CTCTHT11,Hệ điều hành nhúng thời gian thực,3
+ATDVKV2,Kỹ thuật vi xử lý,2
+DT1DVVT6,Cơ sở thiết kế VLSI,3
+DT1DVDM4,Thiết bị ngoại vi và kỹ thuật ghép nối,2
+DT1DVDM5,Xử lý tín hiệu số,3
+DT1DVDT8,Cơ sở điều khiển tự động,2
+DT1DVDM2,Kỹ thuật vi xử lý,3
+CTKH11,"Phân tích, thiết kế hệ thống thông tin",2
+DT1DVVT7,Phát triển ứng dụng IoT,3
+DT1MMKH1,Mật mã lý thuyết,2
+DT1DVTT1,Thực tập cơ sở 1,2
+CLC1ATATAT2,An toàn mạng máy tính,2
+CT.HT10,Chuyên đề cơ sở,2
+CLC1ATCTHT2,Kiến trúc máy tính và hợp ngữ ,2
+LTCBNN2,Tiếng Anh 2,2
+CTCTKM25,Công nghệ phần mềm,2
+CTCBTT8,Lý thuyết độ phức tạp tính toán,2
+CTCTHT9,Thiết kế hệ thống nhúng,3
+ATATAM3,Giao thức an toàn mạng,2
+ATATAM4,An toàn mạng không dây và di động,2
+ATATTT1,Chuyên đề An toàn hệ thống thông tin,2
+ATATTT3,Chuyên đề Công nghệ phần mềm an toàn,2
+ATATTT2,Chuyên đề Kỹ nghệ an toàn mạng,2
+ATATKH10,Công nghệ phần mềm,3
+ATATPM3,Công nghệ web an toàn,3
+ATATAM6,Quản trị an toàn hệ thống,3
+ATATAM9,Tấn công và phòng thủ hệ thống,3
+ATATKH7,Thiết kế giao diện người dùng,2
+CTCTKM12,Phát triển phần mềm ứng dụng,2
+ATCTHT9,Các dịch vụ mạng - Học lại,2
+ATCBLH3,Thực hành vật lý đại cương 1&2,2

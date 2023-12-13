@@ -1,5 +1,7 @@
 import fitz
 from tqdm import tqdm
+
+from dhp_kma.core.spliter_pattern import *
 from dhp_kma.utils.csv_reader import load_subject_mapping
 
 
@@ -14,14 +16,21 @@ def subject_spliter(pdf_file):
     file_dict = {}
     subject_dict = {}
 
-    global_subject_code = ""
-
     subject_mapping = load_subject_mapping()
 
     with fitz.open(pdf_file) as pages:
+        # TODO: remove debugger
+        # page = pages[97]
+        # page_content = page.get_text()
+        # print(page_content)
+        #
+        # exit(0)
 
         for i, page in enumerate(tqdm(pages)):
             page_content = page.get_text()
+
+            global_subject_code = ""
+            global_subject_name = ""
 
             if not page_content:
                 continue
@@ -30,23 +39,23 @@ def subject_spliter(pdf_file):
 
             student_code_line = ""
             subject_noc = ""
-            subject_name = ""
 
+            # loop to each line
             for pcl_index, x in enumerate(page_content_line):
                 if x.__contains__('Mã học phần'):
                     student_code_line = x
 
                 if x.__contains__('Số TC:'):
-                    subject_noc = page_content_line[pcl_index + 1]
+                    noc = pattern_noc(x, pcl_index, page_content_line)
+                    if noc is not None:
+                        subject_noc = noc
 
                 if x.__contains__('Tên'):
-                    # hack: Subject name always before one row with "Tên"
-                    subject_name = page_content_line[pcl_index - 1]
+                    sn = pattern_subject_name(pcl_index, page_content_line)
 
-                    if subject_name.__contains__('Ghi chú'):
-                        subject_name = page_content_line[pcl_index + 1]  # another hack because sometime it 2 step from hell
-
-                    subject_name = subject_name.split(" - ")[0]
+                    if sn is not None:
+                        global_subject_name = sn
+            # end of loop
 
             if not student_code_line:
                 if not global_subject_code:  # Prevent cover and not score page
@@ -58,18 +67,18 @@ def subject_spliter(pdf_file):
                 global_subject_code = subject_code
 
             # in case subject name null check in subject_dict
-            if not subject_name:
-                if subject_code not in subject_dict.keys():
+            if global_subject_name is None or global_subject_name == "" or len(global_subject_name) <= 0:
+                if subject_code in subject_dict.keys():
                     subject_data = next((item for item in subject_mapping if item["subjectCode"] == subject_code), None)
 
                     if subject_data is not None:
-                        subject_name = subject_data.get('name', 'NULL')
+                        global_subject_name = subject_data.get('name', 'NULL')
                     else:
-                        subject_name = "NULL"
+                        global_subject_name = "NULL"
 
             subject_dict[subject_code] = {
                 'noc': subject_noc,
-                'name': subject_name
+                'name': global_subject_name
             }
 
             if subject_code not in file_dict.keys():

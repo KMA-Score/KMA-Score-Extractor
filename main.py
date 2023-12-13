@@ -33,7 +33,7 @@ def dump_opt():
     file_list = []
 
     for entry in obj:
-        if entry.is_file():
+        if entry.is_file() and entry.name.endswith(".pdf"):
             file_list.append(entry)
 
     logger.info("Found {file} files!", file=len(file_list))
