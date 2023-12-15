@@ -1,42 +1,48 @@
 from loguru import logger
 import csv
-import os
 from tqdm import tqdm
+from os import path
 
 from dhp_kma.utils.string import *
 from dhp_kma.utils.time_utils import get_timestamp
 
 
 class CsvEngine:
-    def __init__(self, folder_path):
+    def __init__(self, folder_path, output_mode="tsv"):
         timestamp = get_timestamp()
 
-        self.__score_path = os.path.join(folder_path, "output-score-{}.csv".format(timestamp))
-        self.__subject_path = os.path.join(folder_path, "output-subject-{}.csv".format(timestamp))
-        self.__student_path = os.path.join(folder_path, "output-student-{}.csv".format(timestamp))
+        self.__delimiter = '\t' if output_mode == "tsv" else ','
+        self.__output_path = path.join(folder_path, str(timestamp))
+
+        self.__score_path = os.path.join(self.__output_path, "score.{}".format(output_mode))
+        self.__subject_path = os.path.join(self.__output_path, "subject.{}".format(output_mode))
+        self.__student_path = os.path.join(self.__output_path, "student.{}".format(output_mode))
 
         # tf who need this when output is unique
         # self.__reset_csv()
-        self.__check_missing_output_dir(folder_path)
+        self.__check_missing_output_dir(self.__output_path)
 
         # Score engine
         logger.info("Init Score CSV Engine ...")
         score_header_field = ['StudentId', 'SubjectId', 'FirstComponentScore', 'SecondComponentScore', 'ExamScore',
                               'AvgScore', 'AlphabetScore']
         self.__score_file = open(self.__score_path, mode="w", encoding="utf-8", newline="")
-        self.__score_writer = csv.DictWriter(self.__score_file, fieldnames=score_header_field)
+        self.__score_writer = csv.DictWriter(self.__score_file, fieldnames=score_header_field,
+                                             delimiter=self.__delimiter)
 
         # Subject engine
         logger.info("Init Subject CSV Engine ...")
         subject_header_field = ["Id", "Name", "NumberOfCredits"]
         self.__subject_file = open(self.__subject_path, mode="w", encoding="utf-8", newline="")
-        self.__subject_writer = csv.DictWriter(self.__subject_file, fieldnames=subject_header_field)
+        self.__subject_writer = csv.DictWriter(self.__subject_file, fieldnames=subject_header_field,
+                                               delimiter=self.__delimiter)
 
         # Student engine
         logger.info("Init Student CSV Engine ...")
         student_header_field = ["Id", "Name", "Class"]
         self.__student_file = open(self.__student_path, mode="w", encoding="utf-8", newline="")
-        self.__student_writer = csv.DictWriter(self.__student_file, fieldnames=student_header_field)
+        self.__student_writer = csv.DictWriter(self.__student_file, fieldnames=student_header_field,
+                                               delimiter=self.__delimiter)
 
         self.__create_default_header()
 

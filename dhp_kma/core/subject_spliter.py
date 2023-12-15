@@ -26,11 +26,12 @@ def subject_spliter(pdf_file):
         #
         # exit(0)
 
+        # Those variables should be kept outside of loop to prevent missing subject code in pdf file
+        global_subject_code = ""
+        global_subject_name = ""
+
         for i, page in enumerate(tqdm(pages)):
             page_content = page.get_text()
-
-            global_subject_code = ""
-            global_subject_name = ""
 
             if not page_content:
                 continue
