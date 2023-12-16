@@ -15,7 +15,8 @@ options = {
         "excludes": [],
         "zip_include_packages": ["*"],
         "zip_exclude_packages": [],
-        "packages": ["fitz", "tqdm", "pdfplumber", "pandas", "loguru", "numpy", "charset_normalizer"],
+        "packages": ["fitz", "tqdm", "pdfplumber", "pandas", "loguru", "charset_normalizer", "loky", "psutil",
+                     "enlighten", "numpy", "rich"],
         "include_files": include_files
     },
     "bdist_rpm": {

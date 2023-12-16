@@ -1,7 +1,6 @@
 import os
 import sys
 from time import time
-from loguru import logger
 
 from dhp_kma.dumper import pdf_dumper
 from dhp_kma.export_engine.json_engine import csv_to_json

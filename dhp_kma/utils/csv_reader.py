@@ -18,6 +18,6 @@ def load_csv(path: str):
 def load_subject_mapping():
     mapping_path = find_data_file("subjectNameMapping.csv")
 
-    logger.info("Loading subject mapping into memory")
+    logger.debug("Loading subject mapping into memory")
 
     return load_csv(mapping_path)
