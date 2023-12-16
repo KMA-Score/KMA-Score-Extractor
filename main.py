@@ -52,14 +52,10 @@ if __name__ == "__main__":
 
     if args.type == "dump":
         dump_opt()
-    elif args.type == "tool":
+    elif args.type == "tools":
         if args.tool_type == "c2j" or args.tool_type == "csv2json":
             csv_to_json(args.input_path, args.output_path)
-        elif args.tool_type == "sqlGenerateScore" or args.tool_type == "sqlgensco":
-            generate_sql_score(args.input_path, args.output_path)
-        elif args.tool_type == "sqlGenerateStudent" or args.tool_type == "sqlgenstu":
-            generate_sql_student(args.input_path, args.output_path)
-        elif args.tool_type == "sqlGenerateSubject" or args.tool_type == "sqlgensub":
-            generate_sql_subject(args.input_path, args.output_path)
+        elif args.tool_type == "sqlGenerate" or args.tool_type == "sqlgen":
+            sql_gen(args.input_path, args.output_path)
 
     print(f"\nTotal time: {time() - start_time:.3f}s")
