@@ -1,5 +1,4 @@
 import fitz
-from tqdm import tqdm
 
 from dhp_kma.core.spliter_pattern import *
 from dhp_kma.utils.csv_reader import load_subject_mapping
@@ -30,7 +29,7 @@ def subject_spliter(pdf_file):
         global_subject_code = ""
         global_subject_name = ""
 
-        for i, page in enumerate(tqdm(pages)):
+        for i, page in enumerate(pages):
             page_content = page.get_text()
 
             if not page_content:

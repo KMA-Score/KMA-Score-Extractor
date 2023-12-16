@@ -1,6 +1,5 @@
 from loguru import logger
 import csv
-from tqdm import tqdm
 from os import path
 
 from dhp_kma.utils.string import *
@@ -78,7 +77,7 @@ class CsvEngine:
 
         logger.info("Export to score to CSV")
 
-        for subjectCode, studentsSubjectData in tqdm(data.items()):
+        for subjectCode, studentsSubjectData in data.items():
             for studentSubjectData in studentsSubjectData:
                 insert_dict = {
                     "StudentId": student_code_format(studentSubjectData[0]),
@@ -99,7 +98,7 @@ class CsvEngine:
 
         logger.info("Export to subject to CSV")
 
-        for subjectCode, subjectData in tqdm(data.items()):
+        for subjectCode, subjectData in data.items():
             insert_dict = {
                 "Id": clean_text(subjectCode),
                 "Name": clean_text(subjectData['name']),
@@ -115,7 +114,7 @@ class CsvEngine:
 
         logger.info("Export to student to CSV")
 
-        for studentsSubjectData in tqdm(data.values()):
+        for studentsSubjectData in data.values():
             for studentSubjectData in studentsSubjectData:
                 insert_dict = {
                     "Id": student_code_format(studentSubjectData[0]),
